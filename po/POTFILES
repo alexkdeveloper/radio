@@ -1,0 +1,7 @@
+data/com.github.alexkdeveloper.radio.desktop.in
+data/com.github.alexkdeveloper.radio.appdata.xml.in
+data/com.github.alexkdeveloper.radio.gschema.xml
+src/window.ui
+src/main.vala
+src/window.vala
+

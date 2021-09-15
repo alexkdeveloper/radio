@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Radio
+Exec=radio
+Icon=com.github.alexkdeveloper.radio
+Terminal=false
+Type=Application
+Categories=Audio;Music;Player;AudioVideo;GNOME;GTK;
+Keywords=Radio;Audio;Music;Player;
+StartupNotify=true
