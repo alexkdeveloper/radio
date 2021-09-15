@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-	<id>com.github.alexkdeveloper.radio.desktop</id>
+	<id>com.github.alexkdeveloper.radio</id>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
 <summary>The simplest radio that can be</summary>
@@ -13,7 +13,7 @@
   <url type="help">http://github.com/alexkdeveloper/radio/issues</url>
   <screenshots>
     <screenshot type="default">
-    <image>https://raw.githubusercontent.com/alexkdeveloper/radio/main/data/screenshot.png</image>
+    <image>https://raw.githubusercontent.com/alexkdeveloper/radio/main/screenshot.png</image>
     </screenshot>
   </screenshots>
   <description>
@@ -53,6 +53,6 @@
     <content_attribute id="money-gambling">none</content_attribute>
   </content_rating>
   <releases>
-    <release version="1.0.0" date="2020-10-17"/>
+    <release version="1.0.0" date="2021-09-15"/>
   </releases>
 </component>
