@@ -3,6 +3,7 @@
 	<id>com.github.alexkdeveloper.radio</id>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
+	<name>Radio</name>
 <summary>The simplest radio that can be</summary>
   <provides>
     <binary>com.github.alexkdeveloper.radio</binary>
