@@ -10,7 +10,7 @@
         "--socket=fallback-x11",
         "--socket=wayland",
         "--socket=pulseaudio",
-        "--filesystem=home"
+        "--persist=.stations_for_radio_app"
     ],
     "cleanup" : [
         "/include",
