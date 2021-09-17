@@ -78,7 +78,7 @@ public class Window : Gtk.ApplicationWindow {
             ok_button.clicked.connect(on_ok_clicked);
             tree_view.cursor_changed.connect(on_select_item);
 			player = ElementFactory.make ("playbin", "play");
-            directory_path = Environment.get_home_dir()+"/.stations_for_radio_app";
+            directory_path = Environment.get_user_data_dir()+"/.stations_for_radio_app";
    GLib.File file = GLib.File.new_for_path(directory_path);
    if(!file.query_exists()){
      try{
