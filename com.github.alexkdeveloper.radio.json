@@ -9,8 +9,7 @@
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
-        "--socket=pulseaudio",
-        "--persist=.stations_for_radio_app"
+        "--socket=pulseaudio"
     ],
     "cleanup" : [
         "/include",
