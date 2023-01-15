@@ -281,11 +281,11 @@ private void on_stop_record_clicked(){
                 if(search_box.is_visible()){
                     if(station.name.down().contains(entry_search.get_text().down())){
                        list_title.append(station.name);
-                       list_sub_title.append(station.url_resolved);
+                       list_sub_title.append(station.url);
                     }
                     }else{
                        list_title.append(station.name);
-                       list_sub_title.append(station.url_resolved);
+                       list_sub_title.append(station.url);
                 }
                 if(list_title.length()==100){
                    break;
