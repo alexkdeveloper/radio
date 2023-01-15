@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2020 Alex Kryuchkov <kryuchkovalex19830609@gmail.com> -->
+<!-- Copyright 2023 Alex Kryuchkov <kryuchkovalex19830609@gmail.com> -->
 <component type="desktop">
   <id>com.github.alexkdeveloper.radio</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <name>Soma Radio</name>
+  <name>Radio</name>
   <summary>A simple radio with stations from the website radio-browser.info</summary>
   <provides>
     <binary>com.github.alexkdeveloper.radio</binary>
@@ -19,7 +19,7 @@
     </screenshot>
   </screenshots>
   <description>
-    <p>A simple radio with a clear and concise interface.</p>
+    <p>A simple radio with a clear and concise interface. The application allows you to listen to radio stations from the website radio-browser.info . There is a station search function, as well as the ability to record them in mp3 format.</p>
   </description>
   <categories>
     <category>GTK</category>
