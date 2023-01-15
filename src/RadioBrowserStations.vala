@@ -109,7 +109,7 @@ public int RandomSortFunc (string a, string b) {
 
 public class Client : Object {
     private string current_server;
-    private string USER_AGENT = @"";
+    private string USER_AGENT = @"com.github.alexkdeveloper.radio";
     private Soup.Session _session;
     private ArrayList<string> randomized_servers;
     public Client() throws DataError {
