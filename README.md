@@ -2,6 +2,6 @@
 
 A simple radio for Linux
 
-![][logo]
+![][screenshot]
 
-[logo]: /screenshot.png "Logo text"
+[screenshot]: data/screenshot.png "screenshot"
