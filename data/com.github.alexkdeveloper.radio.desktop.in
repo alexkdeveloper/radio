@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Radio
+Comment=Simple Radio
+Exec=com.github.alexkdeveloper.radio %U
+Icon=com.github.alexkdeveloper.radio
+Terminal=false
+Categories=Audio;Music;Player;AudioVideo;GNOME;GTK;
+Keywords=Radio;Audio;Music;Player;
+X-Purism-FormFactor=Workstation;Mobile;

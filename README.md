@@ -1,7 +1,10 @@
-# radio
+# Soma Radio
 
-A simple radio for Linux
+A simple radio with built-in stations from the website somafm.com
 
-![][screenshot]
+![screenshot.png](/data/screenshot1.png)
 
-[screenshot]: data/screenshot.png "screenshot"
+![screenshot.png](/data/screenshot2.png)
+
+[<img src="https://flathub.org/assets/badges/flathub-badge-en.svg" width="200" alt="Download on Flathub">](https://flathub.org/apps/details/com.github.alexkdeveloper.somafm)
+
