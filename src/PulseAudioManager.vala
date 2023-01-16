@@ -39,7 +39,7 @@ public class PulseAudioManager : GLib.Object {
         }
 
         var props = new PulseAudio.Proplist ();
-        props.sets (PulseAudio.Proplist.PROP_APPLICATION_ID, "com.github.alexkdeveloper.somafm");
+        props.sets (PulseAudio.Proplist.PROP_APPLICATION_ID, "com.github.alexkdeveloper.radio");
         context = new PulseAudio.Context (loop.get_api (), null, props);
         context.set_state_callback (context_state_callback);
 

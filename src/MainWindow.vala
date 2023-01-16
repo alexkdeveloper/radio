@@ -413,7 +413,6 @@ private void on_stop_record_clicked(){
         }else{
            set_toast(_("Successfully added"));
            show_favorite_stations();
-           favorite_list_box.select_row(favorite_list_box.get_row_at_index(get_index(file.get_basename())));
         }
    }
 
@@ -586,7 +585,7 @@ private void on_stop_record_clicked(){
           selection.get_property("subtitle", ref value_sub_item);
           item = value_item.get_string();
           sub_item = value_sub_item.get_string();
-          recorder.station_name = item;
+          recorder.station_name = item.strip();
        }
 
    private void show_favorite_stations(){
