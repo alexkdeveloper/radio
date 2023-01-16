@@ -19,7 +19,7 @@
     </screenshot>
   </screenshots>
   <description>
-    <p>A simple radio with a clear and concise interface. The application allows you to listen to radio stations from the website radio-browser.info . There is a station search function, as well as the ability to record them in mp3 format.</p>
+    <p>A simple radio with a clear and concise interface. The application allows you to listen to radio stations from the website radio-browser.info . There is a function to search for stations, add favorite stations to favorites, as well as the ability to record them in mp3 format.</p>
   </description>
   <categories>
     <category>GTK</category>
@@ -27,7 +27,7 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="1.0.0" date="2023-01-16">
+    <release version="1.0.0" date="2023-01-17">
     <description>
       <ul>
         <li>Initial release</li>
