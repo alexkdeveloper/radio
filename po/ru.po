@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-01-15 20:34+0800\n"
-"PO-Revision-Date: 2023-01-15 20:58+0800\n"
+"POT-Creation-Date: 2023-01-16 19:45+0800\n"
+"PO-Revision-Date: 2023-01-16 19:47+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -15,116 +15,153 @@ msgstr ""
 "X-Poedit-Basepath: ../src\n"
 "X-Poedit-SearchPath-0: MainWindow.vala\n"
 
-#: MainWindow.vala:51
+#: MainWindow.vala:86
+msgid "Back"
+msgstr "Назад"
+
+#: MainWindow.vala:87
+msgid "Add station"
+msgstr "Добавить станцию"
+
+#: MainWindow.vala:88
+msgid "Delete station"
+msgstr "Удалить станцию"
+
+#: MainWindow.vala:89
+msgid "Edit station"
+msgstr "Изменить станцию"
+
+#: MainWindow.vala:90
 msgid "Play"
 msgstr "Запустить"
 
-#: MainWindow.vala:52
+#: MainWindow.vala:91
 msgid "Stop"
 msgstr "Остановить"
 
-#: MainWindow.vala:53
+#: MainWindow.vala:92
 msgid "Start recording"
 msgstr "Записать"
 
-#: MainWindow.vala:54
+#: MainWindow.vala:93
 msgid "Stop recording"
 msgstr "Остановить запись"
 
-#: MainWindow.vala:55
+#: MainWindow.vala:94
+msgid "Add to Favorites"
+msgstr "Добавить в избранное"
+
+#: MainWindow.vala:95
+msgid "Show Favorites"
+msgstr "Показать Избранное"
+
+#: MainWindow.vala:96
 msgid "Search"
 msgstr "Поиск"
 
-#: MainWindow.vala:87
+#: MainWindow.vala:143
 msgid "Go to the website radio-browser.info"
 msgstr "Перейти на сайт radio-browser.info"
 
-#: MainWindow.vala:88
+#: MainWindow.vala:144
 msgid "Open the Records folder"
 msgstr "Открыть папку с записями"
 
-#: MainWindow.vala:89
+#: MainWindow.vala:145
 msgid "About Radio"
 msgstr "О Программе"
 
-#: MainWindow.vala:90
+#: MainWindow.vala:146
 msgid "Quit"
 msgstr "Выйти"
 
-#: MainWindow.vala:132
+#: MainWindow.vala:210
+msgid "Start a search"
+msgstr "Начать поиск"
+
+#: MainWindow.vala:221
 msgid "Welcome!"
 msgstr "Добро пожаловать!"
 
-#: MainWindow.vala:172 MainWindow.vala:197
+#: MainWindow.vala:234
+msgid "Name"
+msgstr "Название"
+
+#: MainWindow.vala:243
+msgid "URL"
+msgstr ""
+
+#: MainWindow.vala:260
+msgid "OK"
+msgstr ""
+
+#: MainWindow.vala:331 MainWindow.vala:357 MainWindow.vala:395
 msgid "Please choose a station"
 msgstr "Пожалуйста, выберите станцию"
 
-#: MainWindow.vala:177
+#: MainWindow.vala:336
 msgid "Now playing: "
 msgstr "Сейчас играет: "
 
-#: MainWindow.vala:185
+#: MainWindow.vala:344
 msgid "Stopped"
 msgstr "Остановлено"
 
-#: MainWindow.vala:217
+#: MainWindow.vala:377
 msgid "Do you want to visit the website radio-browser.info?"
 msgstr "Вы хотите посетить сайт radio-browser.info?"
 
-#: MainWindow.vala:218
+#: MainWindow.vala:378 MainWindow.vala:517
 msgid "_Cancel"
 msgstr ""
 
-#: MainWindow.vala:219 MainWindow.vala:339
+#: MainWindow.vala:379 MainWindow.vala:518 MainWindow.vala:753
 msgid "_OK"
 msgstr ""
 
-#: MainWindow.vala:240
+#: MainWindow.vala:400 MainWindow.vala:473 MainWindow.vala:489
+msgid "A station with the same name already exists"
+msgstr "Станция с таким названием уже существует"
+
+#: MainWindow.vala:409 MainWindow.vala:499
+msgid "Add failed"
+msgstr "Не удалось добавить"
+
+#: MainWindow.vala:412
+msgid "Successfully added"
+msgstr "Успешно добавлено"
+
+#: MainWindow.vala:434 MainWindow.vala:512
+msgid "Choose a station"
+msgstr "Выберите станцию"
+
+#: MainWindow.vala:447
+msgid "Enter the name"
+msgstr "Введите название"
+
+#: MainWindow.vala:452
+msgid "Enter the url"
+msgstr "Введите  url"
+
+#: MainWindow.vala:463
+msgid "Rename failed"
+msgstr "Не удалось переименовать"
+
+#: MainWindow.vala:516
+msgid "Delete station "
+msgstr "Удалить станцию "
+
+#: MainWindow.vala:527
+msgid "Delete failed"
+msgstr "Не удалось удалить"
+
+#: MainWindow.vala:555
 msgid "Enter 3 or more characters"
 msgstr "Введите 3 или более символов"
 
-#: MainWindow.vala:322
+#: MainWindow.vala:736
 msgid "translator-credits"
 msgstr "Alex Kryuchkov https://github.com/alexkdeveloper"
-
-#~ msgid "Back"
-#~ msgstr "Назад"
-
-#~ msgid "Add station"
-#~ msgstr "Добавить станцию"
-
-#~ msgid "Delete station"
-#~ msgstr "Удалить станцию"
-
-#~ msgid "Edit station"
-#~ msgstr "Изменить станцию"
-
-#~ msgid "Name"
-#~ msgstr "Название"
-
-#~ msgid "Choose a station"
-#~ msgstr "Выберите станцию"
-
-#~ msgid "Enter the name"
-#~ msgstr "Введите название"
-
-#~ msgid "Enter the url"
-#~ msgstr "Введите  url"
-
-#~ msgid "Rename failed"
-#~ msgstr "Не удалось переименовать"
-
-#~ msgid "A station with the same name already exists"
-#~ msgstr "Станция с таким названием уже существует"
-
-#~ msgid "Add failed"
-#~ msgstr "Не удалось добавить"
-
-#~ msgid "Delete station "
-#~ msgstr "Удалить станцию "
-
-#~ msgid "Delete failed"
-#~ msgstr "Не удалось удалить"
 
 #~ msgid "Question"
 #~ msgstr "Вопрос"
