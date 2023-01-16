@@ -585,7 +585,7 @@ private void on_stop_record_clicked(){
           selection.get_property("subtitle", ref value_sub_item);
           item = value_item.get_string();
           sub_item = value_sub_item.get_string();
-          recorder.station_name = item.strip();
+          recorder.station_name = item;
        }
 
    private void show_favorite_stations(){
