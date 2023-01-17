@@ -1,6 +1,6 @@
 # Project name, programming language and version
 project (
-    'com.github.alexkdeveloper.radio',
+    'io.github.alexkdeveloper.radio',
     'vala', 'c',
     version: '1.0.0'
 )
