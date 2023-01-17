@@ -757,7 +757,7 @@ private void on_stop_record_clicked(){
     private void about () {
 	        var win = new Adw.AboutWindow () {
                 application_name = "Radio",
-                application_icon = "com.github.alexkdeveloper.radio",
+                application_icon = "io.github.alexkdeveloper.radio",
                 version = "1.0.0",
                 copyright = "Copyright © 2023 Alex Kryuchkov",
                 license_type = License.GPL_3_0,
