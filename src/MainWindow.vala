@@ -397,6 +397,21 @@ private void on_stop_record_clicked(){
         set_toast(_("Please choose a station"));
         return;
     }
+       if(item == "" && sub_item != ""){
+            stack.visible_child = edit_box;
+            current_station.hide();
+            set_buttons_on_edit_stations();
+            mode = 1;
+            if(!is_empty(entry_name.get_text())){
+                entry_name.set_text("");
+            }
+            entry_url.set_text(sub_item);
+            return;
+        }
+        if(item == "" && sub_item == "" || (item != "" && sub_item == "")){
+            set_toast(_("Add failed"));
+            return;
+        }
            GLib.File file = GLib.File.new_for_path(directory_path+"/"+item);
         if(file.query_exists()){
             alert(_("A station with the same name already exists"),"");
@@ -585,7 +600,7 @@ private void on_stop_record_clicked(){
           selection.get_property("subtitle", ref value_sub_item);
           item = value_item.get_string();
           sub_item = value_sub_item.get_string();
-          recorder.station_name = item;
+          recorder.station_name = item.strip();
        }
 
    private void show_favorite_stations(){
@@ -659,8 +674,8 @@ private void on_stop_record_clicked(){
         }
         for(int i=0;i<100;i++){
              var row = new Adw.ActionRow () {
-                title = list_title.nth_data(i),
-                subtitle = list_sub_title.nth_data(i)
+                title = list_title.nth_data(i).strip(),
+                subtitle = list_sub_title.nth_data(i).strip()
                 };
            if(list_sub_title.nth_data(i) != ""){
                list_box.append(row);
