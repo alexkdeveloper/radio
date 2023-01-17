@@ -106,6 +106,9 @@ private int mode;
         add_favorite_button.clicked.connect(on_add_favorite_station);
         show_favorite_button.clicked.connect(()=>{
             stack.visible_child = favorite_scroll;
+            if(search_box.is_visible()){
+                start_search_button.hide();
+            }
             set_buttons_on_favorite_list_stations();
             show_favorite_stations();
         });
@@ -434,6 +437,9 @@ private void on_stop_record_clicked(){
     private void on_add_clicked () {
               stack.visible_child = edit_box;
               current_station.hide();
+              if(search_box.is_visible()){
+                 search_box.hide();
+              }
               set_buttons_on_edit_stations();
               mode = 1;
               if(!is_empty(entry_name.get_text())){
@@ -452,6 +458,9 @@ private void on_stop_record_clicked(){
            }
         stack.visible_child = edit_box;
         current_station.hide();
+         if(search_box.is_visible()){
+            search_box.hide();
+        }
         set_buttons_on_edit_stations();
         mode = 0;
         entry_name.set_text(item);
@@ -552,6 +561,9 @@ private void on_stop_record_clicked(){
     private void on_back_clicked(){
        if(stack.visible_child == favorite_scroll){
             stack.visible_child = scroll;
+            if(search_box.is_visible()){
+                start_search_button.show();
+            }
             set_buttons_on_list_stations();
         }else{
             stack.visible_child = favorite_scroll;
@@ -577,12 +589,14 @@ private void on_stop_record_clicked(){
                   search_box.hide();
                    if(stack.visible_child == favorite_scroll){
                      entry_search.set_text("");
+                     favorite_list_box.select_row(favorite_list_box.get_row_at_index(get_index(item)));
                    }
                }else{
                   search_box.show();
                   entry_search.grab_focus();
                   if(stack.visible_child == favorite_scroll){
                      start_search_button.hide();
+                     entry_search.set_text("");
                    }else{
                      start_search_button.show();
                    }
