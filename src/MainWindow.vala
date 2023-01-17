@@ -688,7 +688,7 @@ private void on_stop_record_clicked(){
         }
         for(int i=0;i<100;i++){
              var row = new Adw.ActionRow () {
-                title = list_title.nth_data(i).strip(),
+                title = list_title.nth_data(i).replace("&", "and").strip(),
                 subtitle = list_sub_title.nth_data(i).strip()
                 };
            if(list_sub_title.nth_data(i) != ""){
