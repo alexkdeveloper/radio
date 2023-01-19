@@ -403,6 +403,9 @@ private void on_stop_record_clicked(){
        if(item == "" && sub_item != ""){
             stack.visible_child = edit_box;
             current_station.hide();
+            if(search_box.is_visible()){
+               search_box.hide();
+            }
             set_buttons_on_edit_stations();
             mode = 1;
             if(!is_empty(entry_name.get_text())){
@@ -428,6 +431,9 @@ private void on_stop_record_clicked(){
         if(!file.query_exists()){
            stack.visible_child = edit_box;
            current_station.hide();
+           if(search_box.is_visible()){
+              search_box.hide();
+           }
            set_buttons_on_edit_stations();
            mode = 1;
            entry_name.set_text(item);
