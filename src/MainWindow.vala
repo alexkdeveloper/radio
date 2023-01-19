@@ -426,7 +426,13 @@ private void on_stop_record_clicked(){
             stderr.printf ("Error: %s\n", e.message);
         }
         if(!file.query_exists()){
-           set_toast(_("Add failed"));
+           stack.visible_child = edit_box;
+           current_station.hide();
+           set_buttons_on_edit_stations();
+           mode = 1;
+           entry_name.set_text(item);
+           entry_name.grab_focus();
+           entry_url.set_text(sub_item);
            return;
         }else{
            set_toast(_("Successfully added"));
