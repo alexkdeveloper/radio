@@ -1,0 +1,166 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.github.alexkdeveloper.radio package.
+#
+# Albano Battistella <albano_battistella@hotmail.com>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: io.github.alexkdeveloper.radio\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-17 21:57+0100\n"
+"PO-Revision-Date: 2023-01-21 14:15+0100\n"
+"Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.12.1\n"
+
+#: src/MainWindow.vala:86
+msgid "Back"
+msgstr "Indietro"
+
+#: src/MainWindow.vala:87
+msgid "Add station"
+msgstr "Aggiungi stazione"
+
+#: src/MainWindow.vala:88
+msgid "Delete station"
+msgstr "Cancella stazione"
+
+#: src/MainWindow.vala:89
+msgid "Edit station"
+msgstr "Modifica stazione"
+
+#: src/MainWindow.vala:90
+msgid "Play"
+msgstr "Avvia"
+
+#: src/MainWindow.vala:91
+msgid "Stop"
+msgstr "Ferma"
+
+#: src/MainWindow.vala:92
+msgid "Start recording"
+msgstr "Inizia registrazione"
+
+#: src/MainWindow.vala:93
+msgid "Stop recording"
+msgstr "Ferma registrazione"
+
+#: src/MainWindow.vala:94
+msgid "Add to Favorites"
+msgstr "Aggiungi ai preferiti"
+
+#: src/MainWindow.vala:95
+msgid "Show Favorites"
+msgstr "Mostra preferiti"
+
+#: src/MainWindow.vala:96
+msgid "Search"
+msgstr "Cerca"
+
+#: src/MainWindow.vala:146
+msgid "Go to the website radio-browser.info"
+msgstr "Vai al sito web radio-browser.info"
+
+#: src/MainWindow.vala:147
+msgid "Open the Records folder"
+msgstr "Apri la cartella registrazioni"
+
+#: src/MainWindow.vala:148
+msgid "About Radio"
+msgstr "Informazioni su Radio"
+
+#: src/MainWindow.vala:149
+msgid "Quit"
+msgstr "Esci"
+
+#: src/MainWindow.vala:213
+msgid "Start a search"
+msgstr "Start een zoekopdracht"
+
+#: src/MainWindow.vala:224
+msgid "Welcome!"
+msgstr "Benvenuti!"
+
+#: src/MainWindow.vala:237
+msgid "Name"
+msgstr "Nome"
+
+#: src/MainWindow.vala:246
+msgid "URL"
+msgstr "URL"
+
+#: src/MainWindow.vala:263
+msgid "OK"
+msgstr "OK"
+
+#: src/MainWindow.vala:336 src/MainWindow.vala:362 src/MainWindow.vala:400
+msgid "Please choose a station"
+msgstr "Si prega di scegliere una stazione"
+
+#: src/MainWindow.vala:341
+msgid "Now playing: "
+msgstr "Ora in riproduzione: "
+
+#: src/MainWindow.vala:349
+msgid "Stopped"
+msgstr "Fermato"
+
+#: src/MainWindow.vala:382
+msgid "Do you want to visit the website radio-browser.info?"
+msgstr "Vuoi visitare il sito radio-browser.info?"
+
+#: src/MainWindow.vala:383 src/MainWindow.vala:542
+msgid "_Cancel"
+msgstr "_Cancella"
+
+#: src/MainWindow.vala:384 src/MainWindow.vala:543 src/MainWindow.vala:783
+msgid "_OK"
+msgstr "_OK"
+
+#: src/MainWindow.vala:415 src/MainWindow.vala:429 src/MainWindow.vala:524
+msgid "Add failed"
+msgstr "Aggiunta non riuscita"
+
+#: src/MainWindow.vala:420 src/MainWindow.vala:498 src/MainWindow.vala:514
+msgid "A station with the same name already exists"
+msgstr "Esiste già una stazione con lo stesso nome"
+
+#: src/MainWindow.vala:432
+msgid "Successfully added"
+msgstr "Aggiunta con successo"
+
+#: src/MainWindow.vala:456 src/MainWindow.vala:537
+msgid "Choose a station"
+msgstr "Scegli una stazione"
+
+#: src/MainWindow.vala:472
+msgid "Enter the name"
+msgstr "Inserisci il nome"
+
+#: src/MainWindow.vala:477
+msgid "Enter the url"
+msgstr "Inserisci url"
+
+#: src/MainWindow.vala:488
+msgid "Rename failed"
+msgstr "Rinomina non riuscita"
+
+#: src/MainWindow.vala:541
+msgid "Delete station "
+msgstr "Elimina stazione "
+
+#: src/MainWindow.vala:552
+msgid "Delete failed"
+msgstr "Eliminazione non riuscita"
+
+#: src/MainWindow.vala:583
+msgid "Enter 3 or more characters"
+msgstr "Inserisci 3 o più caratteri"
+
+#: src/MainWindow.vala:766
+msgid "translator-credits"
+msgstr "Albano Battistella <albano_battistella@hotmail.com>"
