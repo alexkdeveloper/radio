@@ -104,14 +104,7 @@ private int mode;
         play_button.clicked.connect(on_play_station);
         stop_button.clicked.connect(on_stop_station);
         add_favorite_button.clicked.connect(on_add_favorite_station);
-        show_favorite_button.clicked.connect(()=>{
-            stack.visible_child = favorite_scroll;
-            if(search_box.is_visible()){
-                start_search_button.hide();
-            }
-            set_buttons_on_favorite_list_stations();
-            show_favorite_stations();
-        });
+        show_favorite_button.clicked.connect(on_show_favorite_stations);
         search_button.clicked.connect(on_search_clicked);
 
         var headerbar = new Adw.HeaderBar();
@@ -127,32 +120,60 @@ private int mode;
         headerbar.pack_end(stop_record_button);
         headerbar.pack_end(stop_button);
         headerbar.pack_end(play_button);
-        var open_directory_action = new GLib.SimpleAction ("open", null);
-        open_directory_action.activate.connect (on_open_directory_clicked);
-        var go_to_website_action = new GLib.SimpleAction ("website", null);
-        go_to_website_action.activate.connect(on_start_browser_clicked);
-        var about_action = new GLib.SimpleAction ("about", null);
-        about_action.activate.connect (about);
-        var quit_action = new GLib.SimpleAction ("quit", null);
-        var app = GLib.Application.get_default();
-        quit_action.activate.connect(()=>{
-               app.quit();
-            });
-        app.add_action(open_directory_action);
-        app.add_action(go_to_website_action);
-        app.add_action(about_action);
-        app.add_action(quit_action);
-        var menu = new GLib.Menu();
-        var item_website = new GLib.MenuItem (_("Go to the website radio-browser.info"), "app.website");
-        var item_open = new GLib.MenuItem (_("Open the Records folder"), "app.open");
-        var item_about = new GLib.MenuItem (_("About Radio"), "app.about");
-        var item_quit = new GLib.MenuItem (_("Quit"), "app.quit");
-        menu.append_item (item_website);
-        menu.append_item (item_open);
-        menu.append_item (item_about);
-        menu.append_item (item_quit);
-        var popover = new PopoverMenu.from_model(menu);
+
+        var switch_label = new Label(_("Show favorites immediately after launch"));
+        var show_favorites_switch = new Switch();
+        var switch_box = new Box(Orientation.HORIZONTAL,10);
+        switch_box.append(switch_label);
+        switch_box.append(show_favorites_switch);
+
+       var website_button = new Button.with_label(_("Go to the website radio-browser.info"));
+       website_button.add_css_class("flat");
+       var open_button = new Button.with_label(_("Open the Records folder"));
+       open_button.add_css_class("flat");
+       var about_button = new Button.with_label(_("About Radio"));
+       about_button.add_css_class("flat");
+       var quit_button = new Button.with_label(_("Quit"));
+       quit_button.add_css_class("flat");
+
+        var menu_box = new Box(Orientation.VERTICAL,5);
+        menu_box.append(switch_box);
+        menu_box.append(website_button);
+        menu_box.append(open_button);
+        menu_box.append(about_button);
+        menu_box.append(quit_button);
+
+        var popover = new Popover();
+        popover.set_child(menu_box);
         menu_button.set_popover(popover);
+
+        website_button.clicked.connect(()=>{
+            popover.popdown();
+            on_start_browser_clicked();
+        });
+        open_button.clicked.connect(()=>{
+            popover.popdown();
+            on_open_directory_clicked();
+        });
+        about_button.clicked.connect(()=>{
+            popover.popdown();
+            about();
+        });
+        var app = GLib.Application.get_default();
+        quit_button.clicked.connect(()=>{
+            app.quit();
+        });
+
+        RadioSettings.init();
+        var settings = RadioSettings.settings;
+        settings.bind("default-start-favorite-stations", show_favorites_switch, "state", GLib.SettingsBindFlags.DEFAULT);
+        show_favorites_switch.state_set.connect(new_state=>{
+             if (is_active && new_state != RadioSettings.is_default_start_favorite_stations) {
+                   popover.popdown();
+                   set_toast(_("Settings changed"));
+            }
+            return false;
+        });
 
         set_widget_visible(stop_record_button, false);
         set_widget_visible(stop_button,false);
@@ -301,6 +322,10 @@ private int mode;
      }
    }
         show_stations();
+
+        if(RadioSettings.is_default_start_favorite_stations){
+            on_show_favorite_stations();
+        }
 
     var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
@@ -570,6 +595,15 @@ private void on_stop_record_clicked(){
             });
          }
 
+    private void on_show_favorite_stations(){
+          stack.visible_child = favorite_scroll;
+            if(search_box.is_visible()){
+                start_search_button.hide();
+            }
+            set_buttons_on_favorite_list_stations();
+            show_favorite_stations();
+    }
+
     private void on_back_clicked(){
        if(stack.visible_child == favorite_scroll){
             stack.visible_child = scroll;
@@ -770,7 +804,7 @@ private void on_stop_record_clicked(){
 	        var win = new Adw.AboutWindow () {
                 application_name = "Radio",
                 application_icon = "io.github.alexkdeveloper.radio",
-                version = "1.0.0",
+                version = "1.0.1",
                 copyright = "Copyright © 2023 Alex Kryuchkov",
                 license_type = License.GPL_3_0,
                 developer_name = "Alex Kryuchkov",

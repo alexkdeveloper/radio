@@ -4,5 +4,6 @@ sources = files (
     'MainWindow.vala',
     'PulseAudioManager.vala',
     'Recorder.vala',
-    'RadioBrowserStations.vala'
+    'RadioBrowserStations.vala',
+    'RadioSettings.vala'
 )

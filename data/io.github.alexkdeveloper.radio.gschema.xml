@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="radio">
+	<schema id="io.github.alexkdeveloper.radio" path="/io/github/alexkdeveloper/radio/">
+	  <key name="default-start-favorite-stations" type="b">
+	    <default>false</default>
+	  </key>
+	</schema>
+</schemalist>
