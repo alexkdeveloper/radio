@@ -121,11 +121,21 @@ private int mode;
         headerbar.pack_end(stop_button);
         headerbar.pack_end(play_button);
 
-        var switch_label = new Label(_("Show favorites immediately after launch"));
+        var switch_label_show_favorites = new Label(_("Show favorites immediately after launch"));
         var show_favorites_switch = new Switch();
-        var switch_box = new Box(Orientation.HORIZONTAL,10);
-        switch_box.append(switch_label);
-        switch_box.append(show_favorites_switch);
+        show_favorites_switch.halign = Align.END;
+        var switch_box_show_favorites = new Box(Orientation.HORIZONTAL,10);
+        switch_box_show_favorites.halign = Align.CENTER;
+        switch_box_show_favorites.append(switch_label_show_favorites);
+        switch_box_show_favorites.append(show_favorites_switch);
+
+        var switch_label_not_load_stations = new Label(_("Do not load stations at startup"));
+        var not_load_stations_switch = new Switch();
+        not_load_stations_switch.halign = Align.END;
+        var switch_box_not_load_stations = new Box(Orientation.HORIZONTAL,10);
+        switch_box_not_load_stations.halign = Align.CENTER;
+        switch_box_not_load_stations.append(switch_label_not_load_stations);
+        switch_box_not_load_stations.append(not_load_stations_switch);
 
        var website_button = new Button.with_label(_("Go to the website radio-browser.info"));
        website_button.add_css_class("flat");
@@ -137,7 +147,8 @@ private int mode;
        quit_button.add_css_class("flat");
 
         var menu_box = new Box(Orientation.VERTICAL,5);
-        menu_box.append(switch_box);
+        menu_box.append(switch_box_show_favorites);
+        menu_box.append(switch_box_not_load_stations);
         menu_box.append(website_button);
         menu_box.append(open_button);
         menu_box.append(about_button);
@@ -167,8 +178,16 @@ private int mode;
         RadioSettings.init();
         var settings = RadioSettings.settings;
         settings.bind("default-start-favorite-stations", show_favorites_switch, "state", GLib.SettingsBindFlags.DEFAULT);
+        settings.bind("not-load-stations-at-startup", not_load_stations_switch, "state", GLib.SettingsBindFlags.DEFAULT);
         show_favorites_switch.state_set.connect(new_state=>{
              if (is_active && new_state != RadioSettings.is_default_start_favorite_stations) {
+                   popover.popdown();
+                   set_toast(_("Settings changed"));
+            }
+            return false;
+        });
+        not_load_stations_switch.state_set.connect(new_state=>{
+             if (is_active && new_state != RadioSettings.is_not_load_stations_at_startup) {
                    popover.popdown();
                    set_toast(_("Settings changed"));
             }
@@ -321,7 +340,10 @@ private int mode;
         stderr.printf ("Error: %s\n", e.message);
      }
    }
-        show_stations();
+
+        if(!RadioSettings.is_not_load_stations_at_startup){
+            show_stations();
+        }
 
         if(RadioSettings.is_default_start_favorite_stations){
             on_show_favorite_stations();
@@ -804,7 +826,7 @@ private void on_stop_record_clicked(){
 	        var win = new Adw.AboutWindow () {
                 application_name = "Radio",
                 application_icon = "io.github.alexkdeveloper.radio",
-                version = "1.0.1",
+                version = "1.0.2",
                 copyright = "Copyright © 2023 Alex Kryuchkov",
                 license_type = License.GPL_3_0,
                 developer_name = "Alex Kryuchkov",

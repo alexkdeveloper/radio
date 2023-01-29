@@ -4,5 +4,8 @@
 	  <key name="default-start-favorite-stations" type="b">
 	    <default>false</default>
 	  </key>
+	  <key name="not-load-stations-at-startup" type="b">
+	    <default>false</default>
+	  </key>
 	</schema>
 </schemalist>
