@@ -177,10 +177,10 @@ private int mode;
 
         RadioSettings.init();
         var settings = RadioSettings.settings;
-        settings.bind("default-start-favorite-stations", show_favorites_switch, "state", GLib.SettingsBindFlags.DEFAULT);
+        settings.bind("show-favorite-stations-at-startup", show_favorites_switch, "state", GLib.SettingsBindFlags.DEFAULT);
         settings.bind("not-load-stations-at-startup", not_load_stations_switch, "state", GLib.SettingsBindFlags.DEFAULT);
         show_favorites_switch.state_set.connect(new_state=>{
-             if (is_active && new_state != RadioSettings.is_default_start_favorite_stations) {
+             if (is_active && new_state != RadioSettings.is_show_favorite_stations_at_startup) {
                    popover.popdown();
                    set_toast(_("Settings changed"));
             }
@@ -345,7 +345,7 @@ private int mode;
             show_stations();
         }
 
-        if(RadioSettings.is_default_start_favorite_stations){
+        if(RadioSettings.is_show_favorite_stations_at_startup){
             on_show_favorite_stations();
         }
 
