@@ -27,6 +27,13 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="1.0.3" date="2023-02-04">
+    <description>
+      <ul>
+        <li>The search for stations has been accelerated</li>
+      </ul>
+    </description>
+    </release>
     <release version="1.0.2" date="2023-01-30">
     <description>
       <ul>
