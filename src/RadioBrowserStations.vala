@@ -85,10 +85,10 @@ public class Client : Object {
         return stations;
     }
 
-     public ArrayList<Station> search (string station_name) throws DataError {
+     public ArrayList<Station> search (string text) throws DataError {
         var resource = @"json/stations/search?limit=200&offset=0";
-        if (station_name != null && station_name != "") {
-            resource += @"&name=$(station_name)";
+        if (text != null && text != "") {
+            resource += @"&name=$(text)";
         }
         return get_stations (resource);
     }
