@@ -732,36 +732,25 @@ private void on_stop_record_clicked(){
         ) {
             list_box.remove(child);
         }
-        var list_title = new GLib.List<string>();
-        var list_sub_title = new GLib.List<string>();
+        var stations = new Gee.ArrayList<Station>();
           try{
           var client = new Client();
-          var stations = client.get_stations ("/json/stations");
-             foreach (var station in stations) {
-                if(search_box.is_visible()){
-                    if(station.name.down().contains(entry_search.get_text().down())){
-                       list_title.append(station.name);
-                       list_sub_title.append(station.url);
-                    }
-                    }else{
-                       list_title.append(station.name);
-                       list_sub_title.append(station.url);
-                }
-                if(list_title.length()==100){
-                   break;
-                }
-            }
-        } catch (DataError err) {
-            stderr.printf (err.message);
+          if(search_box.is_visible()){
+            stations = client.search(entry_search.get_text().down());
+         }else{
+            stations = client.search("");
         }
-        for(int i=0;i<100;i++){
-             var row = new Adw.ActionRow () {
-                title = list_title.nth_data(i).replace("&", "and").strip(),
-                subtitle = list_sub_title.nth_data(i).strip()
+             foreach (var station in stations) {
+               var row = new Adw.ActionRow () {
+                title = station.name.replace("&", "and").strip(),
+                subtitle = station.url.strip()
                 };
-           if(list_sub_title.nth_data(i) != ""){
+           if(station.url != null && station.url != ""){
                list_box.append(row);
             }
+          }
+        } catch (DataError err) {
+            stderr.printf (err.message);
         }
     }
 

@@ -84,4 +84,12 @@ public class Client : Object {
         var stations = jarray_to_stations (rootarray);
         return stations;
     }
+
+     public ArrayList<Station> search (string station_name) throws DataError {
+        var resource = @"json/stations/search?limit=200&offset=0";
+        if (station_name != null && station_name != "") {
+            resource += @"&name=$(station_name)";
+        }
+        return get_stations (resource);
+    }
   }
