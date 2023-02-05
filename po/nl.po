@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.alexkdeveloper.radio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-24 13:32+0100\n"
-"PO-Revision-Date: 2023-01-24 13:33+0100\n"
+"POT-Creation-Date: 2023-02-05 17:15+0100\n"
+"PO-Revision-Date: 2023-02-05 17:16+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -65,110 +65,114 @@ msgstr "Zoeken"
 msgid "Show favorites immediately after launch"
 msgstr "Favorieten tonen na opstarten"
 
-#: src/MainWindow.vala:130
+#: src/MainWindow.vala:132
+msgid "Do not load stations at startup"
+msgstr "Radiostations niet automatisch laden"
+
+#: src/MainWindow.vala:140
 msgid "Go to the website radio-browser.info"
 msgstr "Open de ‘radio-browser.info’-website"
 
-#: src/MainWindow.vala:132
+#: src/MainWindow.vala:142
 msgid "Open the Records folder"
 msgstr "Open de opnamemap"
 
-#: src/MainWindow.vala:134
+#: src/MainWindow.vala:144
 msgid "About Radio"
 msgstr "Over Radio"
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:146
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: src/MainWindow.vala:173
+#: src/MainWindow.vala:185 src/MainWindow.vala:192
 msgid "Settings changed"
 msgstr "De voorkeuren zijn gewijzigd"
 
-#: src/MainWindow.vala:234
+#: src/MainWindow.vala:253
 msgid "Start a search"
 msgstr "Start een zoekopdracht"
 
-#: src/MainWindow.vala:245
+#: src/MainWindow.vala:264
 msgid "Welcome!"
 msgstr "Welkom!"
 
-#: src/MainWindow.vala:258
+#: src/MainWindow.vala:277
 msgid "Name"
 msgstr "Naam"
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:286
 msgid "URL"
 msgstr "Url"
 
-#: src/MainWindow.vala:284
+#: src/MainWindow.vala:303
 msgid "OK"
 msgstr "Oké"
 
-#: src/MainWindow.vala:361 src/MainWindow.vala:387 src/MainWindow.vala:425
+#: src/MainWindow.vala:383 src/MainWindow.vala:409 src/MainWindow.vala:447
 msgid "Please choose a station"
 msgstr "Kies een radiostation"
 
-#: src/MainWindow.vala:366
+#: src/MainWindow.vala:388
 msgid "Now playing: "
 msgstr "U luistert naar "
 
-#: src/MainWindow.vala:374
+#: src/MainWindow.vala:396
 msgid "Stopped"
 msgstr "Gestopt"
 
-#: src/MainWindow.vala:407
+#: src/MainWindow.vala:429
 msgid "Do you want to visit the website radio-browser.info?"
 msgstr "Wilt u de ‘radio-browser.info’-website openen?"
 
-#: src/MainWindow.vala:408 src/MainWindow.vala:579
+#: src/MainWindow.vala:430 src/MainWindow.vala:601
 msgid "_Cancel"
 msgstr "_Annuleren"
 
-#: src/MainWindow.vala:409 src/MainWindow.vala:580 src/MainWindow.vala:829
+#: src/MainWindow.vala:431 src/MainWindow.vala:602 src/MainWindow.vala:840
 msgid "_OK"
 msgstr "_Oké"
 
-#: src/MainWindow.vala:443 src/MainWindow.vala:561
+#: src/MainWindow.vala:465 src/MainWindow.vala:583
 msgid "Add failed"
 msgstr "Toevoegen mislukt"
 
-#: src/MainWindow.vala:448 src/MainWindow.vala:535 src/MainWindow.vala:551
+#: src/MainWindow.vala:470 src/MainWindow.vala:557 src/MainWindow.vala:573
 msgid "A station with the same name already exists"
 msgstr "Er is al een radiostation met deze naam"
 
-#: src/MainWindow.vala:469
+#: src/MainWindow.vala:491
 msgid "Successfully added"
 msgstr "Het radiostation is toegevoegd"
 
-#: src/MainWindow.vala:493 src/MainWindow.vala:574
+#: src/MainWindow.vala:515 src/MainWindow.vala:596
 msgid "Choose a station"
 msgstr "Kies een radiostation"
 
-#: src/MainWindow.vala:509
+#: src/MainWindow.vala:531
 msgid "Enter the name"
 msgstr "Voer een naam in"
 
-#: src/MainWindow.vala:514
+#: src/MainWindow.vala:536
 msgid "Enter the url"
 msgstr "Voer de url in"
 
-#: src/MainWindow.vala:525
+#: src/MainWindow.vala:547
 msgid "Rename failed"
 msgstr "De naam kan niet worden gewijzigd"
 
-#: src/MainWindow.vala:578
+#: src/MainWindow.vala:600
 msgid "Delete station "
 msgstr "Radiostation verwijderen "
 
-#: src/MainWindow.vala:589
+#: src/MainWindow.vala:611
 msgid "Delete failed"
 msgstr "Het verwijderen is mislukt"
 
-#: src/MainWindow.vala:629
+#: src/MainWindow.vala:651
 msgid "Enter 3 or more characters"
 msgstr "Voer 3 of meer tekens in"
 
-#: src/MainWindow.vala:812
+#: src/MainWindow.vala:823
 msgid "translator-credits"
 msgstr "Heimen Stoffels <vistausss@fastmail.com>"
