@@ -361,6 +361,13 @@ private int mode;
 
             return false;
         });
+        event_controller.key_released.connect ((keyval, keycode, state) => {
+              if (search_box.is_visible() && stack.visible_child == scroll && keyval == Gdk.Key.Return) {
+                on_start_search_clicked();
+            }
+
+            return;
+        });
         ((Gtk.Widget)this).add_controller(event_controller);
  }
 
@@ -442,7 +449,7 @@ private void on_stop_record_clicked(){
        }
 
    private void on_add_favorite_station(){
-          var selection = list_box.get_selected_row();
+   var selection = list_box.get_selected_row();
     if (!selection.is_selected()) {
         set_toast(_("Please choose a station"));
         return;
@@ -624,6 +631,7 @@ private void on_stop_record_clicked(){
             }
             set_buttons_on_favorite_list_stations();
             show_favorite_stations();
+            favorite_list_box.select_row(favorite_list_box.get_row_at_index(get_index(item)));
     }
 
     private void on_back_clicked(){
@@ -671,8 +679,8 @@ private void on_stop_record_clicked(){
               }
         }
 
-   private void on_select_item (ListBox list_box) {
-           var selection = list_box.get_selected_row();
+   private void on_select_item (ListBox lb) {
+           var selection = lb.get_selected_row();
            if (!selection.is_selected()) {
                return;
            }
