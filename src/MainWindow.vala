@@ -34,7 +34,7 @@ private Label current_station;
 private Recorder recorder;
 private Adw.ToastOverlay overlay;
 private string directory_path;
-private string item;
+private string item = "";
 private string sub_item;
 private int mode;
 
