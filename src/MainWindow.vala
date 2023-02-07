@@ -496,7 +496,6 @@ private void on_stop_record_clicked(){
            return;
         }else{
            set_toast(_("Successfully added"));
-           show_favorite_stations();
         }
    }
 
