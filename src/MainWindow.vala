@@ -122,95 +122,37 @@ private int mode;
         headerbar.pack_end(stop_button);
         headerbar.pack_end(play_button);
 
-        var switch_label_play_last_station = new Label(_("Play the last station immediately after launch"));
-        var play_last_station_switch = new Switch();
-        play_last_station_switch.halign = Align.END;
-        var switch_box_play_last_station = new Box(Orientation.HORIZONTAL,10);
-        switch_box_play_last_station.halign = Align.CENTER;
-        switch_box_play_last_station.append(switch_label_play_last_station);
-        switch_box_play_last_station.append(play_last_station_switch);
-
-        var switch_label_show_favorites = new Label(_("Show favorites immediately after launch"));
-        var show_favorites_switch = new Switch();
-        show_favorites_switch.halign = Align.END;
-        var switch_box_show_favorites = new Box(Orientation.HORIZONTAL,10);
-        switch_box_show_favorites.halign = Align.CENTER;
-        switch_box_show_favorites.append(switch_label_show_favorites);
-        switch_box_show_favorites.append(show_favorites_switch);
-
-        var switch_label_not_load_stations = new Label(_("Do not load stations at startup"));
-        var not_load_stations_switch = new Switch();
-        not_load_stations_switch.halign = Align.END;
-        var switch_box_not_load_stations = new Box(Orientation.HORIZONTAL,10);
-        switch_box_not_load_stations.halign = Align.CENTER;
-        switch_box_not_load_stations.append(switch_label_not_load_stations);
-        switch_box_not_load_stations.append(not_load_stations_switch);
-
-       var website_button = new Button.with_label(_("Go to the website radio-browser.info"));
-       website_button.add_css_class("flat");
-       var open_button = new Button.with_label(_("Open the Records folder"));
-       open_button.add_css_class("flat");
-       var about_button = new Button.with_label(_("About Radio"));
-       about_button.add_css_class("flat");
-       var quit_button = new Button.with_label(_("Quit"));
-       quit_button.add_css_class("flat");
-
-        var menu_box = new Box(Orientation.VERTICAL,5);
-        menu_box.append(switch_box_play_last_station);
-        menu_box.append(switch_box_show_favorites);
-        menu_box.append(switch_box_not_load_stations);
-        menu_box.append(website_button);
-        menu_box.append(open_button);
-        menu_box.append(about_button);
-        menu_box.append(quit_button);
-
-        var popover = new Popover();
-        popover.set_child(menu_box);
-        menu_button.set_popover(popover);
-
-        website_button.clicked.connect(()=>{
-            popover.popdown();
-            on_start_browser_clicked();
-        });
-        open_button.clicked.connect(()=>{
-            popover.popdown();
-            on_open_directory_clicked();
-        });
-        about_button.clicked.connect(()=>{
-            popover.popdown();
-            about();
-        });
+        var preferences_action = new GLib.SimpleAction ("preferences", null);
+        preferences_action.activate.connect(on_preferences_clicked);
+        var open_directory_action = new GLib.SimpleAction ("open", null);
+        open_directory_action.activate.connect (on_open_directory_clicked);
+        var go_to_website_action = new GLib.SimpleAction ("website", null);
+        go_to_website_action.activate.connect(on_start_browser_clicked);
+        var about_action = new GLib.SimpleAction ("about", null);
+        about_action.activate.connect (about);
+        var quit_action = new GLib.SimpleAction ("quit", null);
         var app = GLib.Application.get_default();
-        quit_button.clicked.connect(()=>{
-            app.quit();
-        });
-
-        RadioSettings.init();
-        var settings = RadioSettings.settings;
-        settings.bind("play-last-station-at-startup", play_last_station_switch, "state", GLib.SettingsBindFlags.DEFAULT);
-        settings.bind("show-favorite-stations-at-startup", show_favorites_switch, "state", GLib.SettingsBindFlags.DEFAULT);
-        settings.bind("not-load-stations-at-startup", not_load_stations_switch, "state", GLib.SettingsBindFlags.DEFAULT);
-        play_last_station_switch.state_set.connect(new_state=>{
-             if (is_active && new_state != RadioSettings.is_play_last_station_at_startup) {
-                   popover.popdown();
-                   set_toast(_("Settings changed"));
-            }
-            return false;
-        });
-        show_favorites_switch.state_set.connect(new_state=>{
-             if (is_active && new_state != RadioSettings.is_show_favorite_stations_at_startup) {
-                   popover.popdown();
-                   set_toast(_("Settings changed"));
-            }
-            return false;
-        });
-        not_load_stations_switch.state_set.connect(new_state=>{
-             if (is_active && new_state != RadioSettings.is_not_load_stations_at_startup) {
-                   popover.popdown();
-                   set_toast(_("Settings changed"));
-            }
-            return false;
-        });
+        quit_action.activate.connect(()=>{
+               app.quit();
+            });
+        app.add_action(preferences_action);
+        app.add_action(open_directory_action);
+        app.add_action(go_to_website_action);
+        app.add_action(about_action);
+        app.add_action(quit_action);
+        var menu = new GLib.Menu();
+        var item_preferences = new GLib.MenuItem (_("Preferences"), "app.preferences");
+        var item_website = new GLib.MenuItem (_("Go to the website radio-browser.info"), "app.website");
+        var item_open = new GLib.MenuItem (_("Open the Records folder"), "app.open");
+        var item_about = new GLib.MenuItem (_("About Radio"), "app.about");
+        var item_quit = new GLib.MenuItem (_("Quit"), "app.quit");
+        menu.append_item (item_preferences);
+        menu.append_item (item_website);
+        menu.append_item (item_open);
+        menu.append_item (item_about);
+        menu.append_item (item_quit);
+        var popover = new PopoverMenu.from_model(menu);
+        menu_button.set_popover(popover);
 
         set_widget_visible(stop_record_button, false);
         set_widget_visible(stop_button,false);
@@ -370,6 +312,8 @@ private int mode;
      }
    }
 
+        RadioSettings.init();
+
         if(RadioSettings.is_play_last_station_at_startup){
            GLib.File station_name_file = GLib.File.new_for_path(last_station_directory_path+"/name");
            GLib.File station_url_file = GLib.File.new_for_path(last_station_directory_path+"/url");
@@ -491,6 +435,58 @@ private void on_stop_record_clicked(){
    set_widget_visible(record_button,true);
    set_widget_visible(stop_record_button,false);
 }
+
+  private void on_preferences_clicked(){
+        var play_last_station_row = new Adw.ActionRow();
+            play_last_station_row.can_focus = false;
+            play_last_station_row.title = _("Play the last station immediately after launch");
+            var play_last_station_switch = new Switch();
+            play_last_station_switch.valign = Align.CENTER;
+            play_last_station_row.add_suffix(play_last_station_switch);
+            var show_favorite_stations_row = new Adw.ActionRow();
+            show_favorite_stations_row.title = _("Show favorites immediately after launch");
+            var show_favorites_switch = new Switch();
+            show_favorites_switch.valign = Align.CENTER;
+            show_favorite_stations_row.add_suffix(show_favorites_switch);
+            var not_load_stations_row = new Adw.ActionRow();
+            not_load_stations_row.title = _("Do not load stations at startup");
+            var not_load_stations_switch = new Switch();
+            not_load_stations_switch.valign = Align.CENTER;
+            not_load_stations_row.add_suffix(not_load_stations_switch);
+
+            var preferences_box = new ListBox();
+            preferences_box.valign = Align.CENTER;
+            preferences_box.add_css_class("boxed-list");
+            preferences_box.append(play_last_station_row);
+            preferences_box.append(show_favorite_stations_row);
+            preferences_box.append(not_load_stations_row);
+
+            RadioSettings.init();
+
+        var settings = RadioSettings.settings;
+        settings.bind("play-last-station-at-startup", play_last_station_switch, "state", GLib.SettingsBindFlags.DEFAULT);
+        settings.bind("show-favorite-stations-at-startup", show_favorites_switch, "state", GLib.SettingsBindFlags.DEFAULT);
+        settings.bind("not-load-stations-at-startup", not_load_stations_switch, "state", GLib.SettingsBindFlags.DEFAULT);
+        play_last_station_switch.state_set.connect(new_state=>{
+            return false;
+        });
+        show_favorites_switch.state_set.connect(new_state=>{
+            return false;
+        });
+        not_load_stations_switch.state_set.connect(new_state=>{
+            return false;
+        });
+            var window = new Adw.PreferencesWindow();
+            window.title = _("Preferences");
+            window.search_enabled = false;
+            window.default_height = 300;
+            var page = new Adw.PreferencesPage();
+            var group = new Adw.PreferencesGroup();
+            group.add(preferences_box);
+            page.add(group);
+            window.add(page);
+            window.show();
+  }
 
    private void on_start_browser_clicked(){
        var start_browser_dialog = new Adw.MessageDialog(this, _("Do you want to visit the website radio-browser.info?"), "");

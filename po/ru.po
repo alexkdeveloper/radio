@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-02-09 11:45+0800\n"
-"PO-Revision-Date: 2023-02-09 11:48+0800\n"
+"POT-Creation-Date: 2023-02-09 18:05+0800\n"
+"PO-Revision-Date: 2023-02-09 18:06+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -59,125 +59,128 @@ msgstr "Показать Избранное"
 msgid "Search"
 msgstr "Поиск"
 
-#: MainWindow.vala:125
-msgid "Play the last station immediately after launch"
-msgstr "Воспроизводить последнюю станцию сразу после запуска"
+#: MainWindow.vala:144 MainWindow.vala:480
+msgid "Preferences"
+msgstr "Настройки"
 
-#: MainWindow.vala:133
-msgid "Show favorites immediately after launch"
-msgstr "Показывать избранное сразу после запуска"
-
-#: MainWindow.vala:141
-msgid "Do not load stations at startup"
-msgstr "Не загружать станции при запуске"
-
-#: MainWindow.vala:149
+#: MainWindow.vala:145
 msgid "Go to the website radio-browser.info"
 msgstr "Перейти на сайт radio-browser.info"
 
-#: MainWindow.vala:151
+#: MainWindow.vala:146
 msgid "Open the Records folder"
 msgstr "Открыть папку с записями"
 
-#: MainWindow.vala:153
+#: MainWindow.vala:147
 msgid "About Radio"
 msgstr "О Программе"
 
-#: MainWindow.vala:155
+#: MainWindow.vala:148
 msgid "Quit"
 msgstr "Выйти"
 
-#: MainWindow.vala:196 MainWindow.vala:203 MainWindow.vala:210
-msgid "Settings changed"
-msgstr "Настройки изменены"
-
-#: MainWindow.vala:271
+#: MainWindow.vala:213
 msgid "Start a search"
 msgstr "Начать поиск"
 
-#: MainWindow.vala:282
+#: MainWindow.vala:224
 msgid "Welcome!"
 msgstr "Добро пожаловать!"
 
-#: MainWindow.vala:297
+#: MainWindow.vala:239
 msgid "Name"
 msgstr "Название"
 
-#: MainWindow.vala:306
+#: MainWindow.vala:248
 msgid "URL"
 msgstr ""
 
-#: MainWindow.vala:323
+#: MainWindow.vala:265
 msgid "OK"
 msgstr ""
 
-#: MainWindow.vala:389 MainWindow.vala:447
+#: MainWindow.vala:333 MainWindow.vala:391
 msgid "Now playing: "
 msgstr "Сейчас играет: "
 
-#: MainWindow.vala:442 MainWindow.vala:476 MainWindow.vala:514
+#: MainWindow.vala:386 MainWindow.vala:420 MainWindow.vala:510
 msgid "Please choose a station"
 msgstr "Пожалуйста, выберите станцию"
 
-#: MainWindow.vala:463
+#: MainWindow.vala:407
 msgid "Stopped"
 msgstr "Остановлено"
 
-#: MainWindow.vala:496
+#: MainWindow.vala:442
+msgid "Play the last station immediately after launch"
+msgstr "Воспроизводить последнюю станцию сразу после запуска"
+
+#: MainWindow.vala:447
+msgid "Show favorites immediately after launch"
+msgstr "Показывать избранное сразу после запуска"
+
+#: MainWindow.vala:452
+msgid "Do not load stations at startup"
+msgstr "Не загружать станции при запуске"
+
+#: MainWindow.vala:492
 msgid "Do you want to visit the website radio-browser.info?"
 msgstr "Вы хотите посетить сайт radio-browser.info?"
 
-#: MainWindow.vala:497 MainWindow.vala:667
+#: MainWindow.vala:493 MainWindow.vala:663
 msgid "_Cancel"
 msgstr "_Отмена"
 
-#: MainWindow.vala:498 MainWindow.vala:668 MainWindow.vala:909
+#: MainWindow.vala:494 MainWindow.vala:664 MainWindow.vala:905
 msgid "_OK"
 msgstr ""
 
-#: MainWindow.vala:532 MainWindow.vala:649
+#: MainWindow.vala:528 MainWindow.vala:645
 msgid "Add failed"
 msgstr "Не удалось добавить"
 
-#: MainWindow.vala:537 MainWindow.vala:623 MainWindow.vala:639
+#: MainWindow.vala:533 MainWindow.vala:619 MainWindow.vala:635
 msgid "A station with the same name already exists"
 msgstr "Станция с таким названием уже существует"
 
-#: MainWindow.vala:558
+#: MainWindow.vala:554
 msgid "Successfully added"
 msgstr "Успешно добавлено"
 
-#: MainWindow.vala:581 MainWindow.vala:662
+#: MainWindow.vala:577 MainWindow.vala:658
 msgid "Choose a station"
 msgstr "Выберите станцию"
 
-#: MainWindow.vala:597
+#: MainWindow.vala:593
 msgid "Enter the name"
 msgstr "Введите название"
 
-#: MainWindow.vala:602
+#: MainWindow.vala:598
 msgid "Enter the url"
 msgstr "Введите  url"
 
-#: MainWindow.vala:613
+#: MainWindow.vala:609
 msgid "Rename failed"
 msgstr "Не удалось переименовать"
 
-#: MainWindow.vala:666
+#: MainWindow.vala:662
 msgid "Delete station "
 msgstr "Удалить станцию "
 
-#: MainWindow.vala:677
+#: MainWindow.vala:673
 msgid "Delete failed"
 msgstr "Не удалось удалить"
 
-#: MainWindow.vala:720
+#: MainWindow.vala:716
 msgid "Enter 3 or more characters"
 msgstr "Введите 3 или более символов"
 
-#: MainWindow.vala:892
+#: MainWindow.vala:888
 msgid "translator-credits"
 msgstr "Alex Kryuchkov https://github.com/alexkdeveloper"
+
+#~ msgid "Settings changed"
+#~ msgstr "Настройки изменены"
 
 #~ msgid "Question"
 #~ msgstr "Вопрос"
