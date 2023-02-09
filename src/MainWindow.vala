@@ -37,7 +37,7 @@ private string recordings_directory_path;
 private string last_station_directory_path;
 private string favorite_stations_directory_path;
 private string item = "";
-private string sub_item;
+private string sub_item = "";
 private int mode;
 
         public MainWindow(Adw.Application application) {
