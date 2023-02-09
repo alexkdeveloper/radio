@@ -455,7 +455,6 @@ private void on_stop_record_clicked(){
             not_load_stations_row.add_suffix(not_load_stations_switch);
 
             var preferences_box = new ListBox();
-            preferences_box.valign = Align.CENTER;
             preferences_box.add_css_class("boxed-list");
             preferences_box.append(play_last_station_row);
             preferences_box.append(show_favorite_stations_row);
