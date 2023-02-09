@@ -27,12 +27,12 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="1.0.4" date="2023-02-09">
+    <release version="1.0.4" date="2023-02-10">
     <description>
       <ul>
         <li>Added the ability to play the last listened station immediately after launching the application</li>
         <li>The settings have been moved to a special window</li>
-        <li>Station records are now saved in a separate subfolder</li>
+        <li>Station recordings are now saved in a separate subfolder</li>
       </ul>
     </description>
     </release>
