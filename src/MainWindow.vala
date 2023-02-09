@@ -33,6 +33,7 @@ private Button show_favorite_button;
 private Label current_station;
 private Recorder recorder;
 private Adw.ToastOverlay overlay;
+private string last_station_directory_path;
 private string directory_path;
 private string item = "";
 private string sub_item;
@@ -121,6 +122,14 @@ private int mode;
         headerbar.pack_end(stop_button);
         headerbar.pack_end(play_button);
 
+        var switch_label_play_last_station = new Label(_("Play the last station immediately after launch"));
+        var play_last_station_switch = new Switch();
+        play_last_station_switch.halign = Align.END;
+        var switch_box_play_last_station = new Box(Orientation.HORIZONTAL,10);
+        switch_box_play_last_station.halign = Align.CENTER;
+        switch_box_play_last_station.append(switch_label_play_last_station);
+        switch_box_play_last_station.append(play_last_station_switch);
+
         var switch_label_show_favorites = new Label(_("Show favorites immediately after launch"));
         var show_favorites_switch = new Switch();
         show_favorites_switch.halign = Align.END;
@@ -147,6 +156,7 @@ private int mode;
        quit_button.add_css_class("flat");
 
         var menu_box = new Box(Orientation.VERTICAL,5);
+        menu_box.append(switch_box_play_last_station);
         menu_box.append(switch_box_show_favorites);
         menu_box.append(switch_box_not_load_stations);
         menu_box.append(website_button);
@@ -177,8 +187,16 @@ private int mode;
 
         RadioSettings.init();
         var settings = RadioSettings.settings;
+        settings.bind("play-last-station-at-startup", play_last_station_switch, "state", GLib.SettingsBindFlags.DEFAULT);
         settings.bind("show-favorite-stations-at-startup", show_favorites_switch, "state", GLib.SettingsBindFlags.DEFAULT);
         settings.bind("not-load-stations-at-startup", not_load_stations_switch, "state", GLib.SettingsBindFlags.DEFAULT);
+        play_last_station_switch.state_set.connect(new_state=>{
+             if (is_active && new_state != RadioSettings.is_play_last_station_at_startup) {
+                   popover.popdown();
+                   set_toast(_("Settings changed"));
+            }
+            return false;
+        });
         show_favorites_switch.state_set.connect(new_state=>{
              if (is_active && new_state != RadioSettings.is_show_favorite_stations_at_startup) {
                    popover.popdown();
@@ -262,6 +280,8 @@ private int mode;
         search_box.hide();
         start_search_button.clicked.connect(on_start_search_clicked);
         current_station = new Label(_("Welcome!"));
+        current_station.margin_start = 10;
+        current_station.margin_end = 10;
         current_station.add_css_class("title-4");
 	current_station.wrap = true;
         current_station.wrap_mode = WORD;
@@ -332,14 +352,46 @@ private int mode;
         record_button.set_sensitive(false);
 
         directory_path = Environment.get_user_data_dir()+"/favorite-stations";
-   GLib.File file = GLib.File.new_for_path(directory_path);
-   if(!file.query_exists()){
+   GLib.File directory = GLib.File.new_for_path(directory_path);
+   if(!directory.query_exists()){
      try{
-        file.make_directory();
+        directory.make_directory();
      }catch(Error e){
         stderr.printf ("Error: %s\n", e.message);
      }
    }
+      last_station_directory_path = Environment.get_user_data_dir()+"/last-station";
+   GLib.File last_station_directory = GLib.File.new_for_path(last_station_directory_path);
+   if(!last_station_directory.query_exists()){
+     try{
+        last_station_directory.make_directory();
+     }catch(Error e){
+        stderr.printf ("Error: %s\n", e.message);
+     }
+   }
+
+        if(RadioSettings.is_play_last_station_at_startup){
+           GLib.File station_name_file = GLib.File.new_for_path(last_station_directory_path+"/name");
+           GLib.File station_url_file = GLib.File.new_for_path(last_station_directory_path+"/url");
+           if(station_name_file.query_exists() && station_url_file.query_exists()){
+               string station_name;
+               string station_url;
+               try{
+               FileUtils.get_contents(station_name_file.get_path(), out station_name);
+               FileUtils.get_contents(station_url_file.get_path(), out station_url);
+               }catch(Error e){
+                  stderr.printf ("Error: %s\n", e.message);
+              }
+               item = station_name;
+               sub_item = station_url;
+               player.uri = sub_item;
+               player.set_state (State.PLAYING);
+               current_station.set_text(_("Now playing: ")+item.strip());
+               set_widget_visible(play_button,false);
+               set_widget_visible(stop_button,true);
+               record_button.set_sensitive(true);
+            }
+        }
 
         if(!RadioSettings.is_not_load_stations_at_startup){
             show_stations();
@@ -396,6 +448,14 @@ private void on_entry_change(Adw.EntryRow entry, Gtk.Button clear){
  set_widget_visible(play_button,false);
  set_widget_visible(stop_button,true);
  record_button.set_sensitive(true);
+ GLib.File station_name_file = GLib.File.new_for_path(last_station_directory_path+"/name");
+ GLib.File station_url_file = GLib.File.new_for_path(last_station_directory_path+"/url");
+  try{
+    FileUtils.set_contents(station_name_file.get_path(), item);
+    FileUtils.set_contents(station_url_file.get_path(), sub_item);
+  }catch(Error e){
+    stderr.printf ("Error: %s\n", e.message);
+  }
 }
 
 private void on_stop_station(){
@@ -630,7 +690,9 @@ private void on_stop_record_clicked(){
             }
             set_buttons_on_favorite_list_stations();
             show_favorite_stations();
-            favorite_list_box.select_row(favorite_list_box.get_row_at_index(get_index(item)));
+            if(item != ""){
+                 favorite_list_box.select_row(favorite_list_box.get_row_at_index(get_index(item)));
+            }
     }
 
     private void on_back_clicked(){
@@ -822,7 +884,7 @@ private void on_stop_record_clicked(){
 	        var win = new Adw.AboutWindow () {
                 application_name = "Radio",
                 application_icon = "io.github.alexkdeveloper.radio",
-                version = "1.0.3",
+                version = "1.0.4",
                 copyright = "Copyright © 2023 Alex Kryuchkov",
                 license_type = License.GPL_3_0,
                 developer_name = "Alex Kryuchkov",
