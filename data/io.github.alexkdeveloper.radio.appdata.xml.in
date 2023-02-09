@@ -31,6 +31,8 @@
     <description>
       <ul>
         <li>Added the ability to play the last listened station immediately after launching the application</li>
+        <li>The settings have been moved to a special window</li>
+        <li>Station records are now saved in a separate subfolder</li>
       </ul>
     </description>
     </release>

@@ -33,8 +33,9 @@ private Button show_favorite_button;
 private Label current_station;
 private Recorder recorder;
 private Adw.ToastOverlay overlay;
+private string recordings_directory_path;
 private string last_station_directory_path;
-private string directory_path;
+private string favorite_stations_directory_path;
 private string item = "";
 private string sub_item;
 private int mode;
@@ -293,11 +294,11 @@ private int mode;
         recorder = Recorder.get_default ();
         record_button.set_sensitive(false);
 
-        directory_path = Environment.get_user_data_dir()+"/favorite-stations";
-   GLib.File directory = GLib.File.new_for_path(directory_path);
-   if(!directory.query_exists()){
+        favorite_stations_directory_path = Environment.get_user_data_dir()+"/favorite-stations";
+   GLib.File favorite_stations_directory = GLib.File.new_for_path(favorite_stations_directory_path);
+   if(!favorite_stations_directory.query_exists()){
      try{
-        directory.make_directory();
+        favorite_stations_directory.make_directory();
      }catch(Error e){
         stderr.printf ("Error: %s\n", e.message);
      }
@@ -307,6 +308,15 @@ private int mode;
    if(!last_station_directory.query_exists()){
      try{
         last_station_directory.make_directory();
+     }catch(Error e){
+        stderr.printf ("Error: %s\n", e.message);
+     }
+   }
+     recordings_directory_path = Environment.get_user_data_dir()+"/recordings";
+   GLib.File recordings_directory = GLib.File.new_for_path(recordings_directory_path);
+   if(!recordings_directory.query_exists()){
+     try{
+        recordings_directory.make_directory();
      }catch(Error e){
         stderr.printf ("Error: %s\n", e.message);
      }
@@ -527,7 +537,7 @@ private void on_stop_record_clicked(){
             set_toast(_("Add failed"));
             return;
         }
-           GLib.File file = GLib.File.new_for_path(directory_path+"/"+item);
+           GLib.File file = GLib.File.new_for_path(favorite_stations_directory_path+"/"+item);
         if(file.query_exists()){
             alert(_("A station with the same name already exists"),"");
             return;
@@ -600,8 +610,8 @@ private void on_stop_record_clicked(){
 		}
         switch(mode){
             case 0:
-		GLib.File select_file = GLib.File.new_for_path(directory_path+"/"+item);
-		GLib.File edit_file = GLib.File.new_for_path(directory_path+"/"+entry_name.get_text().strip());
+		GLib.File select_file = GLib.File.new_for_path(favorite_stations_directory_path+"/"+item);
+		GLib.File edit_file = GLib.File.new_for_path(favorite_stations_directory_path+"/"+entry_name.get_text().strip());
 		if (select_file.get_basename() != edit_file.get_basename() && !edit_file.query_exists()){
                 FileUtils.rename(select_file.get_path(), edit_file.get_path());
                 if(!edit_file.query_exists()){
@@ -629,7 +639,7 @@ private void on_stop_record_clicked(){
             favorite_list_box.select_row(favorite_list_box.get_row_at_index(get_index(edit_file.get_basename())));
             break;
             case 1:
-	GLib.File file = GLib.File.new_for_path(directory_path+"/"+entry_name.get_text().strip());
+	GLib.File file = GLib.File.new_for_path(favorite_stations_directory_path+"/"+entry_name.get_text().strip());
         if(file.query_exists()){
             alert(_("A station with the same name already exists"),"");
             entry_name.grab_focus();
@@ -657,7 +667,7 @@ private void on_stop_record_clicked(){
         set_toast(_("Choose a station"));
         return;
     }
-           GLib.File file = GLib.File.new_for_path(directory_path+"/"+item);
+           GLib.File file = GLib.File.new_for_path(favorite_stations_directory_path+"/"+item);
         var delete_station_dialog = new Adw.MessageDialog(this, _("Delete station ")+file.get_basename()+"?", "");
             delete_station_dialog.add_response("cancel", _("_Cancel"));
             delete_station_dialog.add_response("ok", _("_OK"));
@@ -667,7 +677,7 @@ private void on_stop_record_clicked(){
             delete_station_dialog.show();
             delete_station_dialog.response.connect((response) => {
                 if (response == "ok") {
-                    FileUtils.remove (directory_path+"/"+item);
+                    FileUtils.remove (favorite_stations_directory_path+"/"+item);
                     if(file.query_exists()){
                        set_toast(_("Delete failed"));
                     }else{
@@ -705,7 +715,7 @@ private void on_stop_record_clicked(){
    }
    
    private void on_open_directory_clicked(){
-      Gtk.show_uri(this, "file://"+Environment.get_user_data_dir(), Gdk.CURRENT_TIME);
+      Gtk.show_uri(this, "file://"+recordings_directory_path, Gdk.CURRENT_TIME);
   }  
 
   private void on_start_search_clicked(){
@@ -752,7 +762,7 @@ private void on_stop_record_clicked(){
    private void show_favorite_stations(){
           var list = new GLib.List<string> ();
             try {
-            Dir dir = Dir.open (directory_path, 0);
+            Dir dir = Dir.open (favorite_stations_directory_path, 0);
             string? name = null;
             while ((name = dir.read_name ()) != null) {
                 if(search_box.is_visible()){
@@ -776,7 +786,7 @@ private void on_stop_record_clicked(){
            foreach (string item in list) {
               string url;
                 try {
-                  FileUtils.get_contents (directory_path+"/"+item, out url);
+                  FileUtils.get_contents (favorite_stations_directory_path+"/"+item, out url);
                } catch (Error e) {
                 stderr.printf ("Error: %s\n", e.message);
                }
@@ -821,7 +831,7 @@ private void on_stop_record_clicked(){
      private int get_index(string item){
             int index_of_item = 0;
             try {
-            Dir dir = Dir.open (directory_path, 0);
+            Dir dir = Dir.open (favorite_stations_directory_path, 0);
             string? name = null;
             int index = 0;
             while ((name = dir.read_name ()) != null) {
