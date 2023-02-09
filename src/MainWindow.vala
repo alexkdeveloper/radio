@@ -328,16 +328,12 @@ private int mode;
            GLib.File station_name_file = GLib.File.new_for_path(last_station_directory_path+"/name");
            GLib.File station_url_file = GLib.File.new_for_path(last_station_directory_path+"/url");
            if(station_name_file.query_exists() && station_url_file.query_exists()){
-               string station_name;
-               string station_url;
                try{
-               FileUtils.get_contents(station_name_file.get_path(), out station_name);
-               FileUtils.get_contents(station_url_file.get_path(), out station_url);
+               FileUtils.get_contents(station_name_file.get_path(), out item);
+               FileUtils.get_contents(station_url_file.get_path(), out sub_item);
                }catch(Error e){
                   stderr.printf ("Error: %s\n", e.message);
               }
-               item = station_name;
-               sub_item = station_url;
                player.uri = sub_item;
                player.set_state (State.PLAYING);
                current_station.set_text(_("Now playing: ")+item.strip());
