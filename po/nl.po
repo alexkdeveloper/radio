@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.alexkdeveloper.radio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-05 17:15+0100\n"
-"PO-Revision-Date: 2023-02-05 17:16+0100\n"
+"POT-Creation-Date: 2023-02-09 18:12+0100\n"
+"PO-Revision-Date: 2023-02-09 18:12+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -17,162 +17,169 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: src/MainWindow.vala:86
+#: src/MainWindow.vala:88
 msgid "Back"
 msgstr "Terug"
 
-#: src/MainWindow.vala:87
+#: src/MainWindow.vala:89
 msgid "Add station"
 msgstr "Radiostation toevoegen"
 
-#: src/MainWindow.vala:88
+#: src/MainWindow.vala:90
 msgid "Delete station"
 msgstr "Radiostation verwijderen"
 
-#: src/MainWindow.vala:89
+#: src/MainWindow.vala:91
 msgid "Edit station"
 msgstr "Radiostation bewerken"
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:92
 msgid "Play"
 msgstr "Beluisteren"
 
-#: src/MainWindow.vala:91
+#: src/MainWindow.vala:93
 msgid "Stop"
 msgstr "Stoppen"
 
-#: src/MainWindow.vala:92
+#: src/MainWindow.vala:94
 msgid "Start recording"
 msgstr "Opname starten"
 
-#: src/MainWindow.vala:93
+#: src/MainWindow.vala:95
 msgid "Stop recording"
 msgstr "Opname stoppen"
 
-#: src/MainWindow.vala:94
+#: src/MainWindow.vala:96
 msgid "Add to Favorites"
 msgstr "Toevoegen aan favorieten"
 
-#: src/MainWindow.vala:95
+#: src/MainWindow.vala:97
 msgid "Show Favorites"
 msgstr "Favorieten tonen"
 
-#: src/MainWindow.vala:96
+#: src/MainWindow.vala:98
 msgid "Search"
 msgstr "Zoeken"
 
-#: src/MainWindow.vala:124
-msgid "Show favorites immediately after launch"
-msgstr "Favorieten tonen na opstarten"
+#: src/MainWindow.vala:145 src/MainWindow.vala:485
+msgid "Preferences"
+msgstr "Voorkeuren"
 
-#: src/MainWindow.vala:132
-msgid "Do not load stations at startup"
-msgstr "Radiostations niet automatisch laden"
-
-#: src/MainWindow.vala:140
+#: src/MainWindow.vala:146
 msgid "Go to the website radio-browser.info"
 msgstr "Open de ‘radio-browser.info’-website"
 
-#: src/MainWindow.vala:142
+#: src/MainWindow.vala:147
 msgid "Open the Records folder"
 msgstr "Open de opnamemap"
 
-#: src/MainWindow.vala:144
+#: src/MainWindow.vala:148
 msgid "About Radio"
 msgstr "Over Radio"
 
-#: src/MainWindow.vala:146
+#: src/MainWindow.vala:149
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: src/MainWindow.vala:185 src/MainWindow.vala:192
-msgid "Settings changed"
-msgstr "De voorkeuren zijn gewijzigd"
-
-#: src/MainWindow.vala:253
+#: src/MainWindow.vala:214
 msgid "Start a search"
 msgstr "Start een zoekopdracht"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:225
 msgid "Welcome!"
 msgstr "Welkom!"
 
-#: src/MainWindow.vala:277
+#: src/MainWindow.vala:240
 msgid "Name"
 msgstr "Naam"
 
-#: src/MainWindow.vala:286
+#: src/MainWindow.vala:249
 msgid "URL"
 msgstr "Url"
 
-#: src/MainWindow.vala:303
+#: src/MainWindow.vala:266
 msgid "OK"
 msgstr "Oké"
 
-#: src/MainWindow.vala:383 src/MainWindow.vala:409 src/MainWindow.vala:447
-msgid "Please choose a station"
-msgstr "Kies een radiostation"
-
-#: src/MainWindow.vala:388
+#: src/MainWindow.vala:339 src/MainWindow.vala:397
 msgid "Now playing: "
 msgstr "U luistert naar "
 
-#: src/MainWindow.vala:396
+#: src/MainWindow.vala:392 src/MainWindow.vala:426 src/MainWindow.vala:515
+msgid "Please choose a station"
+msgstr "Kies een radiostation"
+
+#: src/MainWindow.vala:413
 msgid "Stopped"
 msgstr "Gestopt"
 
-#: src/MainWindow.vala:429
+#: src/MainWindow.vala:448
+msgid "Play the last station immediately after launch"
+msgstr "Recentste radiostation afspelen na opstarten"
+
+#: src/MainWindow.vala:453
+msgid "Show favorites immediately after launch"
+msgstr "Favorieten tonen na opstarten"
+
+#: src/MainWindow.vala:458
+msgid "Do not load stations at startup"
+msgstr "Radiostations niet automatisch laden"
+
+#: src/MainWindow.vala:497
 msgid "Do you want to visit the website radio-browser.info?"
 msgstr "Wilt u de ‘radio-browser.info’-website openen?"
 
-#: src/MainWindow.vala:430 src/MainWindow.vala:601
+#: src/MainWindow.vala:498 src/MainWindow.vala:668
 msgid "_Cancel"
 msgstr "_Annuleren"
 
-#: src/MainWindow.vala:431 src/MainWindow.vala:602 src/MainWindow.vala:840
+#: src/MainWindow.vala:499 src/MainWindow.vala:669 src/MainWindow.vala:910
 msgid "_OK"
 msgstr "_Oké"
 
-#: src/MainWindow.vala:465 src/MainWindow.vala:583
+#: src/MainWindow.vala:533 src/MainWindow.vala:650
 msgid "Add failed"
 msgstr "Toevoegen mislukt"
 
-#: src/MainWindow.vala:470 src/MainWindow.vala:557 src/MainWindow.vala:573
+#: src/MainWindow.vala:538 src/MainWindow.vala:624 src/MainWindow.vala:640
 msgid "A station with the same name already exists"
 msgstr "Er is al een radiostation met deze naam"
 
-#: src/MainWindow.vala:491
+#: src/MainWindow.vala:559
 msgid "Successfully added"
 msgstr "Het radiostation is toegevoegd"
 
-#: src/MainWindow.vala:515 src/MainWindow.vala:596
+#: src/MainWindow.vala:582 src/MainWindow.vala:663
 msgid "Choose a station"
 msgstr "Kies een radiostation"
 
-#: src/MainWindow.vala:531
+#: src/MainWindow.vala:598
 msgid "Enter the name"
 msgstr "Voer een naam in"
 
-#: src/MainWindow.vala:536
+#: src/MainWindow.vala:603
 msgid "Enter the url"
 msgstr "Voer de url in"
 
-#: src/MainWindow.vala:547
+#: src/MainWindow.vala:614
 msgid "Rename failed"
 msgstr "De naam kan niet worden gewijzigd"
 
-#: src/MainWindow.vala:600
+#: src/MainWindow.vala:667
 msgid "Delete station "
 msgstr "Radiostation verwijderen "
 
-#: src/MainWindow.vala:611
+#: src/MainWindow.vala:678
 msgid "Delete failed"
 msgstr "Het verwijderen is mislukt"
 
-#: src/MainWindow.vala:651
+#: src/MainWindow.vala:721
 msgid "Enter 3 or more characters"
 msgstr "Voer 3 of meer tekens in"
 
-#: src/MainWindow.vala:823
+#: src/MainWindow.vala:893
 msgid "translator-credits"
 msgstr "Heimen Stoffels <vistausss@fastmail.com>"
+
+#~ msgid "Settings changed"
+#~ msgstr "De voorkeuren zijn gewijzigd"
