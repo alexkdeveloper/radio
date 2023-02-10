@@ -398,11 +398,9 @@ private void on_entry_change(Adw.EntryRow entry, Gtk.Button clear){
  set_widget_visible(play_button,false);
  set_widget_visible(stop_button,true);
  record_button.set_sensitive(true);
- GLib.File station_name_file = GLib.File.new_for_path(last_station_directory_path+"/name");
- GLib.File station_url_file = GLib.File.new_for_path(last_station_directory_path+"/url");
   try{
-    FileUtils.set_contents(station_name_file.get_path(), item);
-    FileUtils.set_contents(station_url_file.get_path(), sub_item);
+    FileUtils.set_contents(last_station_directory_path+"/name", item);
+    FileUtils.set_contents(last_station_directory_path+"/url", sub_item);
   }catch(Error e){
     stderr.printf ("Error: %s\n", e.message);
   }
