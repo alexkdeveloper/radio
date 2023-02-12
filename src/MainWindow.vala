@@ -9,10 +9,11 @@ namespace Radio {
 private Stack stack;
 private Box box;
 private Box search_box;
+private Box current_label_box;
 private Box edit_box;
 private ScrolledWindow scroll;
 private ScrolledWindow favorite_scroll;
-private dynamic Element player;
+private Player player;
 private ListBox list_box;
 private ListBox favorite_list_box;
 private Adw.EntryRow entry_name;
@@ -31,6 +32,7 @@ private Button stop_record_button;
 private Button add_favorite_button;
 private Button show_favorite_button;
 private Label current_station;
+private Label current_title;
 private Recorder recorder;
 private Adw.ToastOverlay overlay;
 private string recordings_directory_path;
@@ -39,6 +41,8 @@ private string favorite_stations_directory_path;
 private string item = "";
 private string sub_item = "";
 private int mode;
+
+private signal void title_changed (string title);
 
         public MainWindow(Adw.Application application) {
             GLib.Object(application: application,
@@ -222,12 +226,25 @@ private int mode;
         search_box.append(start_search_button);
         search_box.hide();
         start_search_button.clicked.connect(on_start_search_clicked);
+
         current_station = new Label(_("Welcome!"));
         current_station.margin_start = 10;
         current_station.margin_end = 10;
         current_station.add_css_class("title-4");
 	current_station.wrap = true;
         current_station.wrap_mode = WORD;
+
+        current_title = new Label("");
+        current_title.margin_start = 10;
+        current_title.margin_end = 10;
+	current_title.wrap = true;
+        current_title.wrap_mode = WORD;
+        current_title.selectable = true;
+        current_title.hide();
+
+        current_label_box = new Box (Orientation.VERTICAL, 5);
+        current_label_box.append(current_station);
+        current_label_box.append(current_title);
 
         var clear_name = new Button();
         clear_name.set_icon_name("edit-clear-symbolic");
@@ -275,10 +292,10 @@ private int mode;
         stack.add_child(edit_box);
         stack.visible_child = scroll;
 
-   box = new Box(Orientation.VERTICAL,5);
+   box = new Box(Orientation.VERTICAL, 5);
    box.margin_top = 10;
    box.append (search_box);
-   box.append (current_station);
+   box.append (current_label_box);
    box.append (stack);
 
           overlay = new Adw.ToastOverlay();
@@ -290,7 +307,18 @@ private int mode;
 
           set_buttons_on_list_stations();
 
-        player = ElementFactory.make ("playbin", "player");
+        player = new Player(null, null);
+        player.media_info_updated.connect ((obj) => {
+            string? title = extract_title_from_stream (obj);
+            if (title != null) {
+                current_title.show();
+                current_title.set_text(title);
+                title_changed(title);
+            }else{
+                current_title.hide();
+            }
+        });
+
         recorder = Recorder.get_default ();
         record_button.set_sensitive(false);
 
@@ -335,7 +363,7 @@ private int mode;
                   stderr.printf ("Error: %s\n", e.message);
               }
                player.uri = sub_item;
-               player.set_state (State.PLAYING);
+               player.play();
                current_station.set_text(_("Now playing: ")+item.strip());
                set_widget_visible(play_button,false);
                set_widget_visible(stop_button,true);
@@ -393,7 +421,7 @@ private void on_entry_change(Adw.EntryRow entry, Gtk.Button clear){
                return;
            }
  player.uri = sub_item;
- player.set_state (State.PLAYING);
+ player.play();
  current_station.set_text(_("Now playing: ")+item.strip());
  set_widget_visible(play_button,false);
  set_widget_visible(stop_button,true);
@@ -407,8 +435,10 @@ private void on_entry_change(Adw.EntryRow entry, Gtk.Button clear){
 }
 
 private void on_stop_station(){
- player.set_state (State.READY);
+ player.stop();
  current_station.set_text(_("Stopped"));
+ current_title.set_text("");
+ current_title.hide();
  set_widget_visible(play_button,true);
  set_widget_visible(stop_button,false);
  if(recorder.is_recording){
@@ -507,6 +537,20 @@ private void on_stop_record_clicked(){
             });
        }
 
+private string? extract_title_from_stream (PlayerMediaInfo media_info) {
+        string? title = null;
+        var streamlist = media_info.get_stream_list ().copy ();
+        foreach (var stream in streamlist) {
+            var tags = stream.get_tags ();
+            tags.foreach ((list, tag) => {
+                if (tag == "title") {
+                    list.get_string(tag, out title);
+                }
+            });
+        }
+        return title;
+    }
+
    private void on_add_favorite_station(){
    var selection = list_box.get_selected_row();
     if (!selection.is_selected()) {
@@ -515,7 +559,7 @@ private void on_stop_record_clicked(){
     }
        if(item == "" && sub_item != ""){
             stack.visible_child = edit_box;
-            current_station.hide();
+            current_label_box.hide();
             if(search_box.is_visible()){
                search_box.hide();
             }
@@ -543,7 +587,7 @@ private void on_stop_record_clicked(){
         }
         if(!file.query_exists()){
            stack.visible_child = edit_box;
-           current_station.hide();
+           current_label_box.hide();
            if(search_box.is_visible()){
               search_box.hide();
            }
@@ -560,7 +604,7 @@ private void on_stop_record_clicked(){
 
     private void on_add_clicked () {
               stack.visible_child = edit_box;
-              current_station.hide();
+              current_label_box.hide();
               if(search_box.is_visible()){
                  search_box.hide();
               }
@@ -581,7 +625,7 @@ private void on_stop_record_clicked(){
                return;
            }
         stack.visible_child = edit_box;
-        current_station.hide();
+        current_label_box.hide();
          if(search_box.is_visible()){
             search_box.hide();
         }
@@ -703,7 +747,7 @@ private void on_stop_record_clicked(){
             set_buttons_on_list_stations();
         }else{
             stack.visible_child = favorite_scroll;
-            current_station.show();
+            current_label_box.show();
             set_buttons_on_favorite_list_stations();
         }
    }
@@ -883,7 +927,7 @@ private void on_stop_record_clicked(){
 	        var win = new Adw.AboutWindow () {
                 application_name = "Radio",
                 application_icon = "io.github.alexkdeveloper.radio",
-                version = "1.0.4",
+                version = "1.0.5",
                 copyright = "Copyright © 2023 Alex Kryuchkov",
                 license_type = License.GPL_3_0,
                 developer_name = "Alex Kryuchkov",
