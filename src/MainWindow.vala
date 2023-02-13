@@ -239,7 +239,6 @@ private signal void title_changed (string title);
         current_title.margin_end = 10;
 	current_title.wrap = true;
         current_title.wrap_mode = WORD;
-        current_title.selectable = true;
         current_title.hide();
 
         current_label_box = new Box (Orientation.VERTICAL, 5);
