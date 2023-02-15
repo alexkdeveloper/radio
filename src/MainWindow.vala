@@ -395,6 +395,14 @@ private signal void title_changed (string title);
                 on_start_search_clicked();
             }
 
+            if ((list_box.get_selected_row().is_selected() && stack.visible_child == scroll) || (favorite_list_box.get_selected_row().is_selected() && stack.visible_child == favorite_scroll) && keyval == Gdk.Key.space){
+                if(player.get_pipeline().current_state == State.PLAYING){
+                    on_stop_station();
+                }else{
+                    on_play_station();
+                }
+            }
+
             return;
         });
         ((Gtk.Widget)this).add_controller(event_controller);
