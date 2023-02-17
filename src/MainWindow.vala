@@ -35,6 +35,7 @@ private Label current_station;
 private Label current_title;
 private Recorder recorder;
 private Adw.ToastOverlay overlay;
+private PlayerState? current_state;
 private string recordings_directory_path;
 private string last_station_directory_path;
 private string favorite_stations_directory_path;
@@ -42,6 +43,7 @@ private string item = "";
 private string sub_item = "";
 private int mode;
 
+private signal void state_changed (PlayerState state);
 private signal void title_changed (string title);
 
         public MainWindow(Adw.Application application) {
@@ -307,6 +309,10 @@ private signal void title_changed (string title);
           set_buttons_on_list_stations();
 
         player = new Player(null, null);
+        player.state_changed.connect ((state) => {
+            current_state = state;
+            state_changed (state);
+        });
         player.media_info_updated.connect ((obj) => {
             string? title = extract_title_from_stream (obj);
             if (title != null) {
@@ -396,7 +402,7 @@ private signal void title_changed (string title);
             }
 
             if (!search_box.is_visible() && (stack.visible_child == scroll || stack.visible_child == favorite_scroll) && (keyval == Gdk.Key.space || keyval == Gdk.Key.Return)){
-                if(player.get_pipeline().current_state == State.PLAYING){
+                if(current_state == PlayerState.PLAYING || current_state == PlayerState.BUFFERING){
                     on_stop_station();
                 }else{
                     on_play_station();
