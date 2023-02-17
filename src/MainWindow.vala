@@ -486,12 +486,12 @@ private void on_stop_record_clicked(){
   private void on_preferences_clicked(){
         var play_last_station_row = new Adw.ActionRow();
             play_last_station_row.can_focus = false;
-            play_last_station_row.title = _("Play the last station immediately after launch");
+            play_last_station_row.title = _("Play the last station at startup");
             var play_last_station_switch = new Switch();
             play_last_station_switch.valign = Align.CENTER;
             play_last_station_row.add_suffix(play_last_station_switch);
             var show_favorite_stations_row = new Adw.ActionRow();
-            show_favorite_stations_row.title = _("Show favorites immediately after launch");
+            show_favorite_stations_row.title = _("Show favorites after launch");
             var show_favorites_switch = new Switch();
             show_favorites_switch.valign = Align.CENTER;
             show_favorite_stations_row.add_suffix(show_favorites_switch);
