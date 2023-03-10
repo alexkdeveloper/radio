@@ -377,7 +377,7 @@ private signal void title_changed (string title);
         }
 
         if(!RadioSettings.is_not_load_stations_at_startup){
-            show_stations();
+            new GLib.Thread<void>(null, show_stations).join();
         }
 
         if(RadioSettings.is_show_favorite_stations_at_startup){
@@ -772,7 +772,7 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
 
   private void on_start_search_clicked(){
          if(entry_search.text.length>=3){
-                 show_stations();
+                 new GLib.Thread<void>(null, show_stations).join();
               }else{
                  set_toast(_("Enter 3 or more characters"));
             }
