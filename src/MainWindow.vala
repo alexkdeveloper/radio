@@ -581,6 +581,7 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
             if(!is_empty(entry_name.get_text())){
                 entry_name.set_text("");
             }
+            entry_name.grab_focus();
             entry_url.set_text(sub_item);
             return;
         }
