@@ -377,7 +377,11 @@ private signal void title_changed (string title);
         }
 
         if(!RadioSettings.is_not_load_stations_at_startup){
-            new GLib.Thread<void>(null, show_stations).join();
+            if(Thread.supported()){
+                new Thread<void>(null, show_stations).join();
+            }else{
+                 show_stations();
+            }
         }
 
         if(RadioSettings.is_show_favorite_stations_at_startup){
@@ -771,11 +775,15 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
   }  
 
   private void on_start_search_clicked(){
-         if(entry_search.text.length>=3){
-                 new GLib.Thread<void>(null, show_stations).join();
-              }else{
-                 set_toast(_("Enter 3 or more characters"));
+        if(entry_search.text.length>=3){
+            if(Thread.supported()){
+                new Thread<void>(null, show_stations).join();
+            }else{
+                show_stations();
             }
+        }else{
+            set_toast(_("Enter 3 or more characters"));
+        }
     }
 
     private void on_search_clicked(){
@@ -941,7 +949,7 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
 	        var win = new Adw.AboutWindow () {
                 application_name = "Radio",
                 application_icon = "io.github.alexkdeveloper.radio",
-                version = "1.0.5",
+                version = "1.0.6",
                 copyright = "Copyright © 2023 Alex Kryuchkov",
                 license_type = License.GPL_3_0,
                 developer_name = "Alex Kryuchkov",
