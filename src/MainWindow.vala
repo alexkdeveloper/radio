@@ -220,6 +220,7 @@ private signal void title_changed (string title);
         start_search_button.set_tooltip_text(_("Start a search"));
         start_search_button.set_icon_name("edit-find-symbolic");
         start_search_button.add_css_class("flat");
+        start_search_button.clicked.connect(on_start_search_clicked);
 
         search_box = new Box(Orientation.HORIZONTAL,5);
         search_box.margin_start = 30;
@@ -227,7 +228,6 @@ private signal void title_changed (string title);
         search_box.append(entry_search);
         search_box.append(start_search_button);
         search_box.hide();
-        start_search_button.clicked.connect(on_start_search_clicked);
 
         current_station = new Label(_("Welcome!"));
         current_station.margin_start = 10;
@@ -510,8 +510,6 @@ private void on_stop_record_clicked(){
             preferences_box.append(play_last_station_row);
             preferences_box.append(show_favorite_stations_row);
             preferences_box.append(not_load_stations_row);
-
-            RadioSettings.init();
 
         var settings = RadioSettings.settings;
         settings.bind("play-last-station-at-startup", play_last_station_switch, "state", GLib.SettingsBindFlags.DEFAULT);
