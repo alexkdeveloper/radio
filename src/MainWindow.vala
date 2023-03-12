@@ -528,6 +528,7 @@ private void on_stop_record_clicked(){
             window.title = _("Preferences");
             window.search_enabled = false;
             window.default_height = 300;
+            window.set_transient_for(this);
             var page = new Adw.PreferencesPage();
             var group = new Adw.PreferencesGroup();
             group.add(preferences_box);
