@@ -31,6 +31,7 @@
     <description>
       <ul>
         <li>Added support for searching stations in a separate stream</li>
+        <li>Updated the list of servers</li>
       </ul>
     </description>
     </release>
