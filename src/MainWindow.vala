@@ -491,19 +491,19 @@ private void on_stop_record_clicked(){
         var play_last_station_row = new Adw.ActionRow();
             play_last_station_row.can_focus = false;
             play_last_station_row.title = _("Play the last station at startup");
-            var play_last_station_switch = new Switch();
-            play_last_station_switch.valign = Align.CENTER;
-            play_last_station_row.add_suffix(play_last_station_switch);
+            var play_last_station_check_button = new CheckButton();
+            play_last_station_check_button.valign = Align.CENTER;
+            play_last_station_row.add_suffix(play_last_station_check_button);
             var show_favorite_stations_row = new Adw.ActionRow();
             show_favorite_stations_row.title = _("Show favorites after launch");
-            var show_favorites_switch = new Switch();
-            show_favorites_switch.valign = Align.CENTER;
-            show_favorite_stations_row.add_suffix(show_favorites_switch);
+            var show_favorites_check_button = new CheckButton();
+            show_favorites_check_button.valign = Align.CENTER;
+            show_favorite_stations_row.add_suffix(show_favorites_check_button);
             var not_load_stations_row = new Adw.ActionRow();
             not_load_stations_row.title = _("Do not load stations at startup");
-            var not_load_stations_switch = new Switch();
-            not_load_stations_switch.valign = Align.CENTER;
-            not_load_stations_row.add_suffix(not_load_stations_switch);
+            var not_load_stations_check_button = new CheckButton();
+            not_load_stations_check_button.valign = Align.CENTER;
+            not_load_stations_row.add_suffix(not_load_stations_check_button);
 
             var preferences_box = new ListBox();
             preferences_box.add_css_class("boxed-list");
@@ -512,18 +512,10 @@ private void on_stop_record_clicked(){
             preferences_box.append(not_load_stations_row);
 
         var settings = RadioSettings.settings;
-        settings.bind("play-last-station-at-startup", play_last_station_switch, "state", GLib.SettingsBindFlags.DEFAULT);
-        settings.bind("show-favorite-stations-at-startup", show_favorites_switch, "state", GLib.SettingsBindFlags.DEFAULT);
-        settings.bind("not-load-stations-at-startup", not_load_stations_switch, "state", GLib.SettingsBindFlags.DEFAULT);
-        play_last_station_switch.state_set.connect(new_state=>{
-            return false;
-        });
-        show_favorites_switch.state_set.connect(new_state=>{
-            return false;
-        });
-        not_load_stations_switch.state_set.connect(new_state=>{
-            return false;
-        });
+        settings.bind("play-last-station-at-startup", play_last_station_check_button, "active", GLib.SettingsBindFlags.DEFAULT);
+        settings.bind("show-favorite-stations-at-startup", show_favorites_check_button, "active", GLib.SettingsBindFlags.DEFAULT);
+        settings.bind("not-load-stations-at-startup", not_load_stations_check_button, "active", GLib.SettingsBindFlags.DEFAULT);
+
             var window = new Adw.PreferencesWindow();
             window.title = _("Preferences");
             window.search_enabled = false;
@@ -948,7 +940,7 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
 	        var win = new Adw.AboutWindow () {
                 application_name = "Radio",
                 application_icon = "io.github.alexkdeveloper.radio",
-                version = "1.0.7",
+                version = "1.0.8",
                 copyright = "Copyright © 2023 Alex Kryuchkov",
                 license_type = License.GPL_3_0,
                 developer_name = "Alex Kryuchkov",
