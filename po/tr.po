@@ -1,0 +1,184 @@
+# Turkish translation of io.github.alexkdeveloper.radio.
+# Copyright (C) 2023 io.github.alexkdeveloper.radio's COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.github.alexkdeveloper.radio package.
+#
+# Sabri Ünal <libreajans@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: io.github.alexkdeveloper.radio\n"
+"Report-Msgid-Bugs-To: https://github.com/alexkdeveloper/radio/issues\n"
+"POT-Creation-Date: 2023-05-22 16:09+0300\n"
+"PO-Revision-Date: 2023-05-22 16:15+0300\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"Language-Team: Turkish <takim@gnome.org.tr>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: src/MainWindow.vala:94
+msgid "Back"
+msgstr "Geri"
+
+#: src/MainWindow.vala:95
+msgid "Add station"
+msgstr "İstasyon ekle"
+
+#: src/MainWindow.vala:96
+msgid "Delete station"
+msgstr "İstasyonu sil"
+
+#: src/MainWindow.vala:97
+msgid "Edit station"
+msgstr "İstasyonu düzenle"
+
+#: src/MainWindow.vala:98
+msgid "Play"
+msgstr "Oynat"
+
+#: src/MainWindow.vala:99
+msgid "Stop"
+msgstr "Durdur"
+
+#: src/MainWindow.vala:100
+msgid "Start recording"
+msgstr "Kaydı başlat"
+
+#: src/MainWindow.vala:101
+msgid "Stop recording"
+msgstr "Kaydı durdur"
+
+#: src/MainWindow.vala:102
+msgid "Add to Favorites"
+msgstr "Gözdelere Ekle"
+
+#: src/MainWindow.vala:103
+msgid "Show Favorites"
+msgstr "Gözdeleri Göster"
+
+#: src/MainWindow.vala:104
+msgid "Search"
+msgstr "Ara"
+
+#: src/MainWindow.vala:151 src/MainWindow.vala:520
+msgid "Preferences"
+msgstr "Tercihler"
+
+#: src/MainWindow.vala:152
+msgid "Go to the website radio-browser.info"
+msgstr "radio-browser.info web sitesine git"
+
+#: src/MainWindow.vala:153
+msgid "Open the Records folder"
+msgstr "Kayıtlar Klasörünü Aç"
+
+#: src/MainWindow.vala:154
+msgid "About Radio"
+msgstr "Radio Hakkında"
+
+#: src/MainWindow.vala:155
+msgid "Quit"
+msgstr "Çık"
+
+#: src/MainWindow.vala:220
+msgid "Start a search"
+msgstr "Yeni arama başlat"
+
+#: src/MainWindow.vala:232
+msgid "Welcome!"
+msgstr "Hoş Geldiniz!"
+
+#: src/MainWindow.vala:258
+msgid "Name"
+msgstr "Ad"
+
+#: src/MainWindow.vala:267
+msgid "URL"
+msgstr "URL"
+
+#: src/MainWindow.vala:284
+msgid "OK"
+msgstr "Tamam"
+
+#: src/MainWindow.vala:372 src/MainWindow.vala:442
+msgid "Now playing: "
+msgstr "Oynatılıyor: "
+
+#: src/MainWindow.vala:437 src/MainWindow.vala:471 src/MainWindow.vala:565
+msgid "Please choose a station"
+msgstr "Lütfen istasyon seçiniz"
+
+#: src/MainWindow.vala:456
+msgid "Stopped"
+msgstr "Durduruldu"
+
+#: src/MainWindow.vala:493
+msgid "Play the last station at startup"
+msgstr "Son istasyonu başlangıçta oynat"
+
+#: src/MainWindow.vala:498
+msgid "Show favorites after launch"
+msgstr "Başlatıldıktan sonra gözdeleri göster"
+
+#: src/MainWindow.vala:503
+msgid "Do not load stations at startup"
+msgstr "İstasyonları başlangıçta yükleme"
+
+#: src/MainWindow.vala:533
+msgid "Do you want to visit the website radio-browser.info?"
+msgstr "radio-browser.info web sitesini ziyaret etmek istiyor musunuz?"
+
+#: src/MainWindow.vala:534 src/MainWindow.vala:719
+msgid "_Cancel"
+msgstr "İ_ptal"
+
+#: src/MainWindow.vala:535 src/MainWindow.vala:720 src/MainWindow.vala:965
+msgid "_OK"
+msgstr "_Tamam"
+
+#: src/MainWindow.vala:584 src/MainWindow.vala:701
+msgid "Add failed"
+msgstr "Eklenemedi"
+
+#: src/MainWindow.vala:589 src/MainWindow.vala:675 src/MainWindow.vala:691
+msgid "A station with the same name already exists"
+msgstr "Aynı adla bir istasyon zaten var"
+
+#: src/MainWindow.vala:610
+msgid "Successfully added"
+msgstr "Eklendi"
+
+#: src/MainWindow.vala:633 src/MainWindow.vala:714
+msgid "Choose a station"
+msgstr "İstasyon seç"
+
+#: src/MainWindow.vala:649
+msgid "Enter the name"
+msgstr "Adı giriniz"
+
+#: src/MainWindow.vala:654
+msgid "Enter the url"
+msgstr "URL giriniz"
+
+#: src/MainWindow.vala:665
+msgid "Rename failed"
+msgstr "Yeniden adlandırılamadı"
+
+#: src/MainWindow.vala:718
+msgid "Delete station %s?"
+msgstr "%s istasyonu silinsin mi?"
+
+#: src/MainWindow.vala:729
+msgid "Delete failed"
+msgstr "Silinemedi"
+
+#: src/MainWindow.vala:776
+msgid "Enter 3 or more characters"
+msgstr "3 veya daha fazla karakter girin"
+
+#: src/MainWindow.vala:948
+msgid "translator-credits"
+msgstr "Sabri Ünal <libreajans@gmail.com>"
