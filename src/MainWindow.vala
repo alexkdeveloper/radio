@@ -715,7 +715,7 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
         return;
     }
            GLib.File file = GLib.File.new_for_path(favorite_stations_directory_path+"/"+item);
-        var delete_station_dialog = new Adw.MessageDialog(this, _("Delete station ")+file.get_basename()+"?", "");
+        var delete_station_dialog = new Adw.MessageDialog(this, _("Delete station %s?").printf(file.get_basename()), "");
             delete_station_dialog.add_response("cancel", _("_Cancel"));
             delete_station_dialog.add_response("ok", _("_OK"));
             delete_station_dialog.set_default_response("ok");
