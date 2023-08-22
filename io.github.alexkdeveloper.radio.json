@@ -39,7 +39,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/libsoup.git",
-                    "commit": "b0e2d85e36c5a9ee8d4caf16dbdc30302fcf470d"
+                    "commit": "48b3b61154389b377f6cd20ea72e57b62c9256e8"
                 }
             ]
         },
