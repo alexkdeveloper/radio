@@ -116,6 +116,7 @@ private signal void title_changed (string title);
         search_button.clicked.connect(on_search_clicked);
 
         var headerbar = new Adw.HeaderBar();
+        headerbar.add_css_class("flat");
         headerbar.pack_start(back_button);
         headerbar.pack_start(add_button);
         headerbar.pack_start(delete_button);
@@ -940,7 +941,7 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
 	        var win = new Adw.AboutWindow () {
                 application_name = "Radio",
                 application_icon = "io.github.alexkdeveloper.radio",
-                version = "1.0.10",
+                version = "1.0.11",
                 copyright = "Copyright © 2023 Alex Kryuchkov",
                 license_type = License.GPL_3_0,
                 developer_name = "Alex Kryuchkov",
