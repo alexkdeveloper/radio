@@ -41,6 +41,13 @@
     <content_attribute id="social-info">mild</content_attribute>
   </content_rating>
   <releases>
+    <release version="1.0.12" date="2023-12-12">
+    <description>
+      <ul>
+        <li>A small update to the user interface</li>
+      </ul>
+    </description>
+    </release>
     <release version="1.0.11" date="2023-09-22">
     <description>
       <ul>

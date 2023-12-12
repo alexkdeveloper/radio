@@ -220,7 +220,6 @@ private signal void title_changed (string title);
         start_search_button = new Button();
         start_search_button.set_tooltip_text(_("Start a search"));
         start_search_button.set_icon_name("edit-find-symbolic");
-        start_search_button.add_css_class("flat");
         start_search_button.clicked.connect(on_start_search_clicked);
 
         search_box = new Box(Orientation.HORIZONTAL,5);
@@ -370,7 +369,7 @@ private signal void title_changed (string title);
               }
                player.uri = sub_item;
                player.play();
-               current_station.set_text(_("Now playing: ")+item.strip());
+               current_station.set_text(item.strip());
                set_widget_visible(play_button,false);
                set_widget_visible(stop_button,true);
                record_button.set_sensitive(true);
@@ -440,7 +439,7 @@ private void on_entry_change(Adw.EntryRow entry, Gtk.Button clear){
            }
  player.uri = sub_item;
  player.play();
- current_station.set_text(_("Now playing: ")+item.strip());
+ current_station.set_text(item.strip());
  set_widget_visible(play_button,false);
  set_widget_visible(stop_button,true);
  record_button.set_sensitive(true);
@@ -941,7 +940,7 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
 	        var win = new Adw.AboutWindow () {
                 application_name = "Radio",
                 application_icon = "io.github.alexkdeveloper.radio",
-                version = "1.0.11",
+                version = "1.0.12",
                 copyright = "Copyright © 2023 Alex Kryuchkov",
                 license_type = License.GPL_3_0,
                 developer_name = "Alex Kryuchkov",
