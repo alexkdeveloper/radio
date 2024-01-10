@@ -1,0 +1,208 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-10 16:02+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/io.github.alexkdeveloper.radio.appdata.xml.in:7
+#: data/io.github.alexkdeveloper.radio.desktop.in:4
+msgid "Radio"
+msgstr ""
+
+#: data/io.github.alexkdeveloper.radio.appdata.xml.in:8
+msgid "A simple radio with stations from the website radio-browser.info"
+msgstr ""
+
+#: data/io.github.alexkdeveloper.radio.appdata.xml.in:12
+msgid "Alex Kryuchkov"
+msgstr ""
+
+#: data/io.github.alexkdeveloper.radio.appdata.xml.in:22
+msgid ""
+"A simple radio with a clear and concise interface. The application allows "
+"you to listen to radio stations from the website radio-browser.info. There "
+"is a function to search for stations, add favorite stations to favorites, as "
+"well as the ability to record them in mp3 format."
+msgstr ""
+
+#: data/io.github.alexkdeveloper.radio.desktop.in:5
+msgid "Simple Radio"
+msgstr ""
+
+#: data/io.github.alexkdeveloper.radio.desktop.in:10
+msgid "Radio;Audio;Music;Player;"
+msgstr ""
+
+#: src/MainWindow.vala:94
+msgid "Back"
+msgstr ""
+
+#: src/MainWindow.vala:95
+msgid "Add station"
+msgstr ""
+
+#: src/MainWindow.vala:96
+msgid "Delete station"
+msgstr ""
+
+#: src/MainWindow.vala:97
+msgid "Edit station"
+msgstr ""
+
+#: src/MainWindow.vala:98
+msgid "Play"
+msgstr ""
+
+#: src/MainWindow.vala:99
+msgid "Stop"
+msgstr ""
+
+#: src/MainWindow.vala:100
+msgid "Start recording"
+msgstr ""
+
+#: src/MainWindow.vala:101
+msgid "Stop recording"
+msgstr ""
+
+#: src/MainWindow.vala:102
+msgid "Add to Favorites"
+msgstr ""
+
+#: src/MainWindow.vala:103
+msgid "Show Favorites"
+msgstr ""
+
+#: src/MainWindow.vala:104
+msgid "Search"
+msgstr ""
+
+#: src/MainWindow.vala:152 src/MainWindow.vala:520
+msgid "Preferences"
+msgstr ""
+
+#: src/MainWindow.vala:153
+msgid "Go to the website radio-browser.info"
+msgstr ""
+
+#: src/MainWindow.vala:154
+msgid "Open the Records folder"
+msgstr ""
+
+#: src/MainWindow.vala:155
+msgid "About Radio"
+msgstr ""
+
+#: src/MainWindow.vala:156
+msgid "Quit"
+msgstr ""
+
+#: src/MainWindow.vala:221
+msgid "Start a search"
+msgstr ""
+
+#: src/MainWindow.vala:232
+msgid "Welcome!"
+msgstr ""
+
+#: src/MainWindow.vala:258
+msgid "Name"
+msgstr ""
+
+#: src/MainWindow.vala:267
+msgid "URL"
+msgstr ""
+
+#: src/MainWindow.vala:284
+msgid "OK"
+msgstr ""
+
+#: src/MainWindow.vala:437 src/MainWindow.vala:471 src/MainWindow.vala:565
+msgid "Please choose a station"
+msgstr ""
+
+#: src/MainWindow.vala:456
+msgid "Stopped"
+msgstr ""
+
+#: src/MainWindow.vala:493
+msgid "Play the last station at startup"
+msgstr ""
+
+#: src/MainWindow.vala:498
+msgid "Show favorites after launch"
+msgstr ""
+
+#: src/MainWindow.vala:503
+msgid "Do not load stations at startup"
+msgstr ""
+
+#: src/MainWindow.vala:533
+msgid "Do you want to visit the website radio-browser.info?"
+msgstr ""
+
+#: src/MainWindow.vala:534 src/MainWindow.vala:719
+msgid "_Cancel"
+msgstr ""
+
+#: src/MainWindow.vala:535 src/MainWindow.vala:720 src/MainWindow.vala:965
+msgid "_OK"
+msgstr ""
+
+#: src/MainWindow.vala:584 src/MainWindow.vala:701
+msgid "Add failed"
+msgstr ""
+
+#: src/MainWindow.vala:589 src/MainWindow.vala:675 src/MainWindow.vala:691
+msgid "A station with the same name already exists"
+msgstr ""
+
+#: src/MainWindow.vala:610
+msgid "Successfully added"
+msgstr ""
+
+#: src/MainWindow.vala:633 src/MainWindow.vala:714
+msgid "Choose a station"
+msgstr ""
+
+#: src/MainWindow.vala:649
+msgid "Enter the name"
+msgstr ""
+
+#: src/MainWindow.vala:654
+msgid "Enter the url"
+msgstr ""
+
+#: src/MainWindow.vala:665
+msgid "Rename failed"
+msgstr ""
+
+#: src/MainWindow.vala:718
+#, c-format
+msgid "Delete station %s?"
+msgstr ""
+
+#: src/MainWindow.vala:729
+msgid "Delete failed"
+msgstr ""
+
+#: src/MainWindow.vala:776
+msgid "Enter 3 or more characters"
+msgstr ""
+
+#: src/MainWindow.vala:948
+msgid "translator-credits"
+msgstr ""

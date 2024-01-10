@@ -1,1 +1,3 @@
+data/io.github.alexkdeveloper.radio.appdata.xml.in
+data/io.github.alexkdeveloper.radio.desktop.in
 src/MainWindow.vala
