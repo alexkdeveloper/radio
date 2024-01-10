@@ -1,15 +1,15 @@
 # Turkish translation of io.github.alexkdeveloper.radio.
-# Copyright (C) 2023 io.github.alexkdeveloper.radio's COPYRIGHT HOLDER
+# Copyright (C) 2023-2024 io.github.alexkdeveloper.radio's COPYRIGHT HOLDER
 # This file is distributed under the same license as the io.github.alexkdeveloper.radio package.
 #
-# Sabri Ünal <libreajans@gmail.com>, 2023.
+# Sabri Ünal <libreajans@gmail.com>, 2023, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: io.github.alexkdeveloper.radio\n"
-"Report-Msgid-Bugs-To: https://github.com/alexkdeveloper/radio/issues\n"
-"POT-Creation-Date: 2023-05-22 16:09+0300\n"
-"PO-Revision-Date: 2023-05-22 16:15+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-10 16:02+0300\n"
+"PO-Revision-Date: 2024-01-10 16:06+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <takim@gnome.org.tr>\n"
 "Language: tr\n"
@@ -17,7 +17,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: data/io.github.alexkdeveloper.radio.appdata.xml.in:7
+#: data/io.github.alexkdeveloper.radio.desktop.in:4
+msgid "Radio"
+msgstr "Radyo"
+
+#: data/io.github.alexkdeveloper.radio.appdata.xml.in:8
+msgid "A simple radio with stations from the website radio-browser.info"
+msgstr "Radio-browser.info web sitesindeki istasyonları içeren basit bir radyo"
+
+#: data/io.github.alexkdeveloper.radio.appdata.xml.in:12
+msgid "Alex Kryuchkov"
+msgstr "Alex Kryuchkov"
+
+#: data/io.github.alexkdeveloper.radio.appdata.xml.in:22
+msgid ""
+"A simple radio with a clear and concise interface. The application allows "
+"you to listen to radio stations from the website radio-browser.info. There "
+"is a function to search for stations, add favorite stations to favorites, as "
+"well as the ability to record them in mp3 format."
+msgstr ""
+"Basit ve sade arayüze sahip bir radyo. Bu uygulama, radio-browser.info web "
+"sitesinden radyoları dinlemenizi sağlar. İstasyonları aramak, istasyonları "
+"gözdelere eklemek ve bunları mp3 biçiminde kaydetme özelliği vardır."
+
+#: data/io.github.alexkdeveloper.radio.desktop.in:5
+msgid "Simple Radio"
+msgstr "Basit Radyo"
+
+#: data/io.github.alexkdeveloper.radio.desktop.in:10
+msgid "Radio;Audio;Music;Player;"
+msgstr "Radyo;Ses;Müzik;Çalar;Oynatıcı;"
 
 #: src/MainWindow.vala:94
 msgid "Back"
@@ -63,27 +95,27 @@ msgstr "Gözdeleri Göster"
 msgid "Search"
 msgstr "Ara"
 
-#: src/MainWindow.vala:151 src/MainWindow.vala:520
+#: src/MainWindow.vala:152 src/MainWindow.vala:520
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: src/MainWindow.vala:152
+#: src/MainWindow.vala:153
 msgid "Go to the website radio-browser.info"
 msgstr "radio-browser.info web sitesine git"
 
-#: src/MainWindow.vala:153
+#: src/MainWindow.vala:154
 msgid "Open the Records folder"
 msgstr "Kayıtlar Klasörünü Aç"
 
-#: src/MainWindow.vala:154
+#: src/MainWindow.vala:155
 msgid "About Radio"
 msgstr "Radio Hakkında"
 
-#: src/MainWindow.vala:155
+#: src/MainWindow.vala:156
 msgid "Quit"
 msgstr "Çık"
 
-#: src/MainWindow.vala:220
+#: src/MainWindow.vala:221
 msgid "Start a search"
 msgstr "Yeni arama başlat"
 
@@ -102,10 +134,6 @@ msgstr "URL"
 #: src/MainWindow.vala:284
 msgid "OK"
 msgstr "Tamam"
-
-#: src/MainWindow.vala:372 src/MainWindow.vala:442
-msgid "Now playing: "
-msgstr "Oynatılıyor: "
 
 #: src/MainWindow.vala:437 src/MainWindow.vala:471 src/MainWindow.vala:565
 msgid "Please choose a station"
@@ -168,6 +196,7 @@ msgid "Rename failed"
 msgstr "Yeniden adlandırılamadı"
 
 #: src/MainWindow.vala:718
+#, c-format
 msgid "Delete station %s?"
 msgstr "%s istasyonu silinsin mi?"
 
