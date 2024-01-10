@@ -46,10 +46,11 @@
      {
         "name": "Radio",
         "buildsystem": "meson",
+        "run-tests": true,
         "sources": [
             {
-                "type" : "git",
-                "url" : "https://github.com/alexkdeveloper/radio.git"
+                "type" : "dir",
+                "path" : "."
             }
         ]
       }
