@@ -940,8 +940,8 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
 	        var win = new Adw.AboutWindow () {
                 application_name = "Radio",
                 application_icon = "io.github.alexkdeveloper.radio",
-                version = "1.0.12",
-                copyright = "Copyright © 2023 Alex Kryuchkov",
+                version = "1.0.13",
+                copyright = "Copyright © 2023-2024 Alex Kryuchkov",
                 license_type = License.GPL_3_0,
                 developer_name = "Alex Kryuchkov",
                 developers = {"Alex Kryuchkov https://github.com/alexkdeveloper"},

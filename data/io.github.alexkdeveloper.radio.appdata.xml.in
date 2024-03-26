@@ -27,6 +27,13 @@
   </description>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.0.13" date="2024-03-26">
+    <description translatable="no">
+      <ul>
+        <li>Updated to GNOME Platform 46</li>
+      </ul>
+    </description>
+    </release>
     <release version="1.0.12" date="2023-12-12">
     <description translatable="no">
       <ul>
