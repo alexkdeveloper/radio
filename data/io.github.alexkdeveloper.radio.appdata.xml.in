@@ -17,7 +17,7 @@
   <url type="bugtracker">https://github.com/alexkdeveloper/radio/issues</url>
   <url type="vcs-browser">https://github.com/alexkdeveloper/radio</url>
   <url type="translate">https://github.com/alexkdeveloper/radio/tree/main/po</url>
-  <url type="help">http://github.com/alexkdeveloper/radio/issues</url>
+  <url type="help">https://github.com/alexkdeveloper/radio/issues</url>
   <translation type="gettext">io.github.alexkdeveloper.radio</translation>
   <launchable type="desktop-id">io.github.alexkdeveloper.radio.desktop</launchable>
   <screenshots>
