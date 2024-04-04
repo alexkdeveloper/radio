@@ -10,6 +10,9 @@
     <binary>io.github.alexkdeveloper.radio</binary>
   </provides>
   <developer_name>Alex Kryuchkov</developer_name>
+  <developer id="io.github.alexkdeveloper">
+    <name>Alex Kryuchkov</name>
+  </developer>
   <url type="homepage">https://github.com/alexkdeveloper/radio</url>
   <url type="bugtracker">https://github.com/alexkdeveloper/radio/issues</url>
   <url type="vcs-browser">https://github.com/alexkdeveloper/radio</url>
