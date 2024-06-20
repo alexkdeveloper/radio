@@ -22,8 +22,6 @@ private SearchEntry entry_search;
 private Button back_button;
 private Button search_button;
 private Button start_search_button;
-private Button add_button;
-private Button delete_button;
 private Button edit_button;
 private Button play_button;
 private Button stop_button;
@@ -36,6 +34,8 @@ private Label current_title;
 private Recorder recorder;
 private Adw.ToastOverlay overlay;
 private PlayerState? current_state;
+private GLib.SimpleAction add_station_action;
+private GLib.SimpleAction delete_station_action;
 private string recordings_directory_path;
 private string last_station_directory_path;
 private string favorite_stations_directory_path;
@@ -60,12 +60,6 @@ private signal void title_changed (string title);
         back_button = new Gtk.Button();
             back_button.set_icon_name ("go-previous-symbolic");
             back_button.vexpand = false;
-        add_button = new Gtk.Button ();
-            add_button.set_icon_name ("list-add-symbolic");
-            add_button.vexpand = false;
-        delete_button = new Gtk.Button ();
-            delete_button.set_icon_name ("list-remove-symbolic");
-            delete_button.vexpand = false;
         edit_button = new Gtk.Button ();
             edit_button.set_icon_name ("document-edit-symbolic");
             edit_button.vexpand = false;
@@ -92,8 +86,6 @@ private signal void title_changed (string title);
             menu_button.vexpand = false;
 
         back_button.set_tooltip_text(_("Back"));
-        add_button.set_tooltip_text(_("Add station"));
-        delete_button.set_tooltip_text(_("Delete station"));
         edit_button.set_tooltip_text(_("Edit station"));
         play_button.set_tooltip_text(_("Play"));
         stop_button.set_tooltip_text(_("Stop"));
@@ -104,8 +96,6 @@ private signal void title_changed (string title);
         search_button.set_tooltip_text (_("Search"));
 
         back_button.clicked.connect(on_back_clicked);
-        add_button.clicked.connect(on_add_clicked);
-        delete_button.clicked.connect(on_delete_dialog);
         edit_button.clicked.connect(on_edit_clicked);
         record_button.clicked.connect(on_record_clicked);
         stop_record_button.clicked.connect(on_stop_record_clicked);
@@ -118,8 +108,6 @@ private signal void title_changed (string title);
         var headerbar = new Adw.HeaderBar();
         headerbar.add_css_class("flat");
         headerbar.pack_start(back_button);
-        headerbar.pack_start(add_button);
-        headerbar.pack_start(delete_button);
         headerbar.pack_start(edit_button);
         headerbar.pack_start(add_favorite_button);
         headerbar.pack_start(show_favorite_button);
@@ -130,6 +118,10 @@ private signal void title_changed (string title);
         headerbar.pack_end(stop_button);
         headerbar.pack_end(play_button);
 
+        add_station_action = new GLib.SimpleAction ("add-station", null);
+        add_station_action.activate.connect(on_add_clicked);
+        delete_station_action = new GLib.SimpleAction ("delete-station", null);
+        delete_station_action.activate.connect(on_delete_dialog);
         var preferences_action = new GLib.SimpleAction ("preferences", null);
         preferences_action.activate.connect(on_preferences_clicked);
         var open_directory_action = new GLib.SimpleAction ("open", null);
@@ -143,17 +135,23 @@ private signal void title_changed (string title);
         quit_action.activate.connect(()=>{
                app.quit();
             });
+        app.add_action(add_station_action);
+        app.add_action(delete_station_action);
         app.add_action(preferences_action);
         app.add_action(open_directory_action);
         app.add_action(go_to_website_action);
         app.add_action(about_action);
         app.add_action(quit_action);
         var menu = new GLib.Menu();
+        var item_add_station = new GLib.MenuItem (_("Add station"), "app.add-station");
+        var item_delete_station = new GLib.MenuItem (_("Delete station"), "app.delete-station");
         var item_preferences = new GLib.MenuItem (_("Preferences"), "app.preferences");
         var item_website = new GLib.MenuItem (_("Go to the website radio-browser.info"), "app.website");
         var item_open = new GLib.MenuItem (_("Open the Records folder"), "app.open");
         var item_about = new GLib.MenuItem (_("About Radio"), "app.about");
         var item_quit = new GLib.MenuItem (_("Quit"), "app.quit");
+        menu.append_item (item_add_station);
+        menu.append_item (item_delete_station);
         menu.append_item (item_preferences);
         menu.append_item (item_website);
         menu.append_item (item_open);
@@ -908,9 +906,9 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
   }
 
     private void set_buttons_on_list_stations(){
+       add_station_action.set_enabled(false);
+       delete_station_action.set_enabled(false);
        set_widget_visible(back_button,false);
-       set_widget_visible(add_button,false);
-       set_widget_visible(delete_button,false);
        set_widget_visible(edit_button,false);
        set_widget_visible(add_favorite_button,true);
        set_widget_visible(show_favorite_button,true);
@@ -918,18 +916,18 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
    }
 
    private void set_buttons_on_favorite_list_stations(){
+       add_station_action.set_enabled(true);
+       delete_station_action.set_enabled(true);
        set_widget_visible(back_button,true);
-       set_widget_visible(add_button,true);
-       set_widget_visible(delete_button,true);
        set_widget_visible(edit_button,true);
        set_widget_visible(add_favorite_button,false);
        set_widget_visible(show_favorite_button,false);
        set_widget_visible(search_button,true);
     }
    private void set_buttons_on_edit_stations(){
+       add_station_action.set_enabled(false);
+       delete_station_action.set_enabled(false);
        set_widget_visible(back_button,true);
-       set_widget_visible(add_button,false);
-       set_widget_visible(delete_button,false);
        set_widget_visible(edit_button,false);
        set_widget_visible(add_favorite_button,false);
        set_widget_visible(show_favorite_button,false);
@@ -940,7 +938,7 @@ private string? extract_title_from_stream (PlayerMediaInfo media_info) {
 	        var win = new Adw.AboutWindow () {
                 application_name = "Radio",
                 application_icon = "io.github.alexkdeveloper.radio",
-                version = "1.0.13",
+                version = "1.0.14",
                 copyright = "Copyright © 2023-2024 Alex Kryuchkov",
                 license_type = License.GPL_3_0,
                 developer_name = "Alex Kryuchkov",

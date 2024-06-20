@@ -30,6 +30,13 @@
   </description>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.0.14" date="2024-06-20">
+    <description translate="no">
+      <ul>
+        <li>The buttons for adding and removing stations have been moved to the menu</li>
+      </ul>
+    </description>
+    </release>
     <release version="1.0.13" date="2024-03-26">
     <description translate="no">
       <ul>
