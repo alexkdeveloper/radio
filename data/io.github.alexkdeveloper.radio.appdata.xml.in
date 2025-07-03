@@ -30,6 +30,13 @@
   </description>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.0.16" date="2025-07-03">
+    <description translate="no">
+      <ul>
+        <li>Updated the list of servers</li>
+      </ul>
+    </description>
+    </release>
     <release version="1.0.15" date="2024-08-08">
     <description translate="no">
       <ul>
