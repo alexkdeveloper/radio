@@ -5,6 +5,6 @@ Comment=Simple Radio
 Exec=io.github.alexkdeveloper.radio %U
 Icon=io.github.alexkdeveloper.radio
 Terminal=false
-Categories=Audio;Music;Player;GNOME;GTK;
+Categories=AudioVideo;Music;Player;GNOME;GTK;
 Keywords=Radio;Audio;Music;Player;
 X-Purism-FormFactor=Workstation;Mobile;
